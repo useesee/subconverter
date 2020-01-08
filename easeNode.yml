@@ -5,3 +5,8 @@ Proxy:
   port: 30001
   cipher: aes-128-gcm
   password: desperadoj.com
+Proxy:
+- name: 网易-TV
+  type: http
+  server: tv.jiyiy.cn
+  port: 39999
