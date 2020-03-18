@@ -1,10 +1,8 @@
 Proxy:
-  - {name: 香港台湾, server: twa.988998.xyz, port: 80, type: vmess, uuid: D8568173-E88C-F6AA-0E24-98079DC6F80F, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: download.windowsupdate.com}}
   - {name: 香港HKT-A, server: hkta.988998.xyz, port: 80, type: vmess, uuid: D8568173-E88C-F6AA-0E24-98079DC6F80F, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: download.windowsupdate.com}}
   - {name: 香港HKT-B, server: hktb.988998.xyz, port: 80, type: vmess, uuid: D8568173-E88C-F6AA-0E24-98079DC6F80F, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: download.windowsupdate.com}}
   - {name: 香港HKT-C, server: hktc.988998.xyz, port: 80, type: vmess, uuid: D8568173-E88C-F6AA-0E24-98079DC6F80F, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: download.windowsupdate.com}}
   - {name: 香港HKT-D, server: hkt5x.988998.xyz, port: 80, type: vmess, uuid: D8568173-E88C-F6AA-0E24-98079DC6F80F, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: download.windowsupdate.com}}
   - {name: 香港洛杉矶, server: laxa.988998.xyz, port: 80, type: vmess, uuid: D8568173-E88C-F6AA-0E24-98079DC6F80F, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: download.windowsupdate.com}}
   - {name: 香港圣何塞, server: sjc1.988998.xyz, port: 80, type: vmess, uuid: D8568173-E88C-F6AA-0E24-98079DC6F80F, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: download.windowsupdate.com}}
-  - {name: 香港日本, server: jpa.988998.xyz, port: 80, type: vmess, uuid: D8568173-E88C-F6AA-0E24-98079DC6F80F, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: download.windowsupdate.com}}
   - {name: 网易-如风, server: music.desperadoj.com, port: 30001, type: ss, cipher: aes-128-gcm, password: desperadoj.com}  
