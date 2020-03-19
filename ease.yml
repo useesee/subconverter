@@ -1,0 +1,2 @@
+Proxy:
+  - {name: 网易-如风, server: music.desperadoj.com, port: 30001, type: ss, cipher: aes-128-gcm, password: desperadoj.com}
