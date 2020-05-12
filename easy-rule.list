@@ -4,6 +4,7 @@ DOMAIN,apm.music.163.com
 DOMAIN,interface3.music.163.com
 DOMAIN,interface.music.163.com
 DOMAIN,music.163.com
+DOMAIN,acstatic-dun.126.net
 DOMAIN,nstool.netease.com
 DOMAIN-SUFFIX,mam.netease.com
 DOMAIN-SUFFIX,hz.netease.com
@@ -19,7 +20,7 @@ IP-CIDR,59.111.181.35/32,no-resolve
 IP-CIDR,59.111.181.38/32,no-resolve
 IP-CIDR,59.111.181.60/32,no-resolve
 IP-CIDR,59.111.239.61/32,no-resolve
-IP-CIDR,559.111.239.62/32,no-resolve
+IP-CIDR,59.111.239.62/32,no-resolve
 IP-CIDR,101.71.154.241/32,no-resolve
 IP-CIDR,103.126.92.132/32,no-resolve
 IP-CIDR,103.126.92.133/32,no-resolve
