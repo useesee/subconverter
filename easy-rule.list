@@ -8,7 +8,6 @@ DOMAIN-SUFFIX,mam.netease.com
 DOMAIN-SUFFIX,hz.netease.com
 DOMAIN-SUFFIX,163yun.com
 DOMAIN-SUFFIX,music.126.net
-IP-CIDR,114.80.30.35/32,no-resolve
 IP-CIDR,39.105.63.80/32,no-resolve
 IP-CIDR,45.254.48.1/32,no-resolve
 IP-CIDR,47.100.127.239/32,no-resolve
