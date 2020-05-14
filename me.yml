@@ -1,2 +1,5 @@
 Proxy:
   - {name: 美国-me, server: www.uvsx.ml, port: 443, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 0, cipher: auto, tls: true, network: ws, ws-path: /, ws-headers: {Host: www.uvsx.ml}}
+  - {name: 美国洛杉矶, server: 155.94.177.192, port: 9000, type: vmess, uuid: 9c76238c-a5da-4fd0-b1f2-628438c62bcd, alterId: 16, cipher: auto, network: kcp}
+  - {name: 美国旧金山, server: 68.183.161.181, port: 55050, type: vmess, uuid: b904717-6831-4cab-943c-d8f581438fba, alterId: 16, cipher: auto, network: kcp}
+  - {name: 新加坡, server: 167.99.76.197, port: 60345, type: vmess, uuid: 94860674-511e-425b-b2ae-7bca22290e22, alterId: 16, cipher: auto, network: kcp}
