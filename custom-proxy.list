@@ -13,3 +13,4 @@ IP-CIDR6,2a0b:b583::/48,no-resolve
 # study
 DOMAIN-SUFFIX,sina.com
 DOMAIN-SUFFIX,zhihu.com
+DOMAIN-SUFFIX,zhimg.com
