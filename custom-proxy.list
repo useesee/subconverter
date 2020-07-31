@@ -12,6 +12,9 @@ IP-CIDR6,2a0b:b583::/48,no-resolve
 
 # study
 DOMAIN-SUFFIX,sina.com
+DOMAIN-SUFFIX,sina.com.cn
+DOMAIN-SUFFIX,sinajs.cn
+DOMAIN-SUFFIX,sinaimg.cn
 DOMAIN-SUFFIX,weibo.com
 DOMAIN-SUFFIX,zhihu.com
 DOMAIN-SUFFIX,zhimg.com
