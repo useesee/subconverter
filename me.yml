@@ -1,7 +1,7 @@
 proxies:
   - {name: 🇺🇲 美国-me, server: www.uvsx.ml, port: 443, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 0, cipher: auto, tls: true, network: ws, ws-path: /, ws-headers: {Host: www.uvsx.ml}}
-  - {name: 🇨🇳 解锁1, server: 106.52.127.72, port: 19951, type: http, tls: false}
-  - {name: 🇨🇳 解锁2, server: 3music.poetyin.me, port: 100, type: http, tls: false}
-  - {name: 🇨🇳 解锁3, server: block4music.poetyin.me, port: 39000, type: http, tls: false}
-  - {name: 🇨🇳 解锁4, server: taron.t, port: 200, type: http, tls: false}
-  - {name: 🇨🇳 解锁5, server: music.lolico.me, port: 39000, type: http, tls: false}
+  - {name: 解锁1, server: 106.52.127.72, port: 19951, type: http, tls: false}
+  - {name: 解锁2, server: 3music.poetyin.me, port: 100, type: http, tls: false}
+  - {name: 解锁3, server: block4music.poetyin.me, port: 39000, type: http, tls: false}
+  - {name: 解锁4, server: taron.t, port: 200, type: http, tls: false}
+  - {name: 解锁5, server: music.lolico.me, port: 39000, type: http, tls: false}
