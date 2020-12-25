@@ -1,4 +1,4 @@
-Proxy:
+proxies:
   - name: 美国-me
     server: www.uvsx.ml
     port: 443
