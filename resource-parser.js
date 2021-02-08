@@ -292,9 +292,6 @@ function SubFlow() {
     var total = "总流量: " + (parseFloat(sinfo.split("total=")[1].split(",")[0]) / (1024 ** 3)).toFixed(2) + "GB";
     var usd = "已用流量: " + ((parseFloat(sinfo.indexOf("upload")!=-1?sinfo.split("upload=")[1].split(",")[0]:"0") + parseFloat(sinfo.split("download=")[1].split(",")[0])) / (1024 ** 3)).toFixed(2) + "GB"
     var left = "剩余流量: " + ((parseFloat(sinfo.split("total=")[1].split(",")[0]) / (1024 ** 3)) - ((parseFloat(sinfo.indexOf("upload")!=-1?sinfo.split("upload=")[1].split(",")[0]:"0") + parseFloat(sinfo.split("download=")[1].split(",")[0])) / (1024 ** 3))).toFixed(2) + "GB"
-    total = "总流量: 300.00GB";
-    usd = "已用流量: 261.00GB";
-    left = "剩余流量: 39.00GB"
     if (sinfo.indexOf("expire=") != -1) {
       var epr = new Date(parseFloat(sinfo.split("expire=")[1].split(",")[0]) * 1000);
       var year = epr.getFullYear();  // 获取完整的年份(4位,1970)
