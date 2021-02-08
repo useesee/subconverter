@@ -88,7 +88,7 @@ resource_parser_url = https://raw.githubusercontent.com/KOP-XIAO/QuantumultX/mas
 
 //beginning 解析器正常使用，調試註釋此部分
 
-let [link0, content0, subinfo] = [$resource.link, $resource.content, "total=322122547200,upload=300000,download=5000000,expire=2021-02-12"]
+let [link0, content0, subinfo] = [$resource.link, $resource.content, $resource.info]
 const subtag = $resource.tag != undefined ? $resource.tag : "";
 ////// 非 raw 链接的沙雕情形
 content0 = content0.indexOf("DOCTYPE html") != -1 && link0.indexOf("github.com") != -1 ? ToRaw(content0) : content0 ;
