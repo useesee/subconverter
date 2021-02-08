@@ -375,7 +375,8 @@ function Type_Check(subs) {
       type = "Subs"
     } else if (SubK.some(NodeCheck)) {  //b64加密的订阅类型
       type = "Subs-B64Encode"
-    } else if ((subi.indexOf("tag=") != -1 && QuanXK.some(NodeCheck) && !/\[(Proxy|filter_local)\]/.test(subs)) || typeU =="list") {
+    } else if ((subi.indexOf("tag=") != -1 && QuanXK.some(NodeCheck) && !/\[(Proxy|filter_local)\]/.test(subs)) || typeU == "list") {
+      $notify(subi)
       type = "Subs" // QuanX list
     } else if (subs.indexOf("[Proxy]") != -1) {
       type = "Surge"; // Surge Profiles
