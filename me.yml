@@ -3,8 +3,9 @@ proxies:
   - {name: 🇭🇰 香港B-me, server: hndg8uehrwuigryusfcbyazifvwayregwausybvyudxhjfgsayugfugsegekuqf.hkb.cutecloud.gq, port: 80, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: ov.baidu.com}}
   - {name: 🇭🇰 香港C-me, server: hndg8uehrwuigryusfcbyazifvwayregwausybvyudxhjfgsayugfugsegekuqf.hkc.cutecloud.gq, port: 80, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: sr.qq.com}}
   - {name: 🇺🇲 美国洛杉矶A-me, server: hndg8uehrwuigryusfcbyazifvwayregwausybvyudxhjfgsayugfugsegekuqf.laxa.cutecloud.gq, port: 80, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: pl.iqiyi.com}}
-  - {name: 🇨🇳 广州移动中转-me, server: 112.33.32.108, port: 23551, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: ab.iqiyi.com}}
+  - {name: 🇺🇲 美国洛杉矶A-ip, server: 104.16.0.0, port: 443, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 1, cipher: auto, tls: true, network: ws, ws-path: /, ws-headers: {Host: laxa.cutecloud.ml}}
   - {name: 🇺🇲 美国-me, server: www.uvsx.ml, port: 443, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 0, cipher: auto, tls: true, network: wss, ws-path: /, ws-headers: {Host: www.uvsx.ml}}
+  - {name: 🇨🇳 广州移动中转-me, server: 112.33.32.108, port: 23551, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: ab.iqiyi.com}}
   - {name: 🇨🇳 解锁1, server: 106.52.127.72, port: 19951, type: http, tls: false}
   - {name: 🇨🇳 解锁2, server: 3music.poetyin.me, port: 100, type: http, tls: false}
   - {name: 🇨🇳 解锁3, server: block4music.poetyin.me, port: 39000, type: http, tls: false}
