@@ -9,7 +9,7 @@
 
 vmess = 104.16.0.0:443, method=chacha20-ietf-poly1305, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=wss, obfs-host=laxa.cutecloud.ml, obfs-uri=/, tag=🇺🇲 美国洛杉矶A-ip
 vmess = hndg8uehrwuigryusfcbyazifvwayregwausybvyudxhjfgsayugfugsegekuqf.laxa.cutecloud.gq:80, method=chacha20-ietf-poly1305, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=ws, obfs-host=pl.iqiyi.com, obfs-uri=/, tag=🇺🇲 美国洛杉矶A-me
-vmess = www.uvsx.ml:443, method=chacha20-ietf-poly1305, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=over-tls, obfs-host=www.uvsx.ml, tag=🇺🇲 美国-cf
+vmess = www.uvsx.ml:443, method=aes-128-gcm, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=over-tls, obfs-host=www.uvsx.ml, tag=🇺🇲 美国-cf
 vmess = hndg8uehrwuigryusfcbyazifvwayregwausybvyudxhjfgsayugfugsegekuqf.hka.cutecloud.gq:80, method=chacha20-ietf-poly1305, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=ws, obfs-host=ad.sina.com, obfs-uri=/, tag=🇭🇰 香港A-me
 vmess = hndg8uehrwuigryusfcbyazifvwayregwausybvyudxhjfgsayugfugsegekuqf.hkb.cutecloud.gq:80, method=chacha20-ietf-poly1305, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=ws, obfs-host=ov.baidu.com, obfs-uri=/, tag=🇭🇰 香港B-me
 vmess = hndg8uehrwuigryusfcbyazifvwayregwausybvyudxhjfgsayugfugsegekuqf.hkc.cutecloud.gq:80, method=chacha20-ietf-poly1305, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=ws, obfs-host=sr.qq.com, obfs-uri=/, tag=🇭🇰 香港C-me
