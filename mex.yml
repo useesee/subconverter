@@ -7,7 +7,9 @@
 #   - {name: 🇺🇲 美国洛杉矶A-ip, server: 104.16.0.0, port: 443, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 0, cipher: chacha20-ietf-poly1305, tls: true, network: wss, ws-path: /, ws-headers: {Host: laxa.cutecloud.ml}}
 #   - {name: 🇺🇲 美国-me, server: www.uvsx.ml, port: 443, type: vmess, uuid: 8B27A282-46BE-4DE2-4C57-0152B6897CA0, alterId: 0, cipher: chacha20-ietf-poly1305, tls: true, network: wss, ws-path: /, ws-headers: {Host: www.uvsx.ml}}
 
-vmess = a.uvsx.ml:443, method=none, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=wss, tls-verification=true, obfs-host=laxa.cutecloud.ml, tag=🇺🇲 美国-cfs
-vmess = a.uvsx.ml:80, method=none, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=ws, tls-verification=false, obfs-host=laxa.cutecloud.ml, tag=🇺🇲 美国-cf
+vmess = a.uvsx.ml:443, method=none, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=wss, tls-verification=true, obfs-host=laxa.cutecloud.ml, tag=🇺🇲 美国-cfas
+vmess = b.uvsx.ml:443, method=none, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=wss, tls-verification=true, obfs-host=laxa.cutecloud.ml, tag=🇺🇲 美国-cfbs
+vmess = a.uvsx.ml:80, method=none, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=ws, tls-verification=false, obfs-host=laxa.cutecloud.ml, tag=🇺🇲 美国-cfa
+vmess = b.uvsx.ml:80, method=none, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=ws, tls-verification=false, obfs-host=laxa.cutecloud.ml, tag=🇺🇲 美国-cfb
 # vmess = www.uvsx.ml:443, method=aes-128-gcm, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=wss, tls-verification=true, obfs-host=www.uvsx.ml, tag=🇺🇲 美国-cf2
 # vmess = www.uvsx.ml:443, method=chacha20-ietf-poly1305, password=8B27A282-46BE-4DE2-4C57-0152B6897CA0, obfs=wss, tls-verification=true, tls-host=www.uvsx.ml, tag=🇺🇲 美国-cf3
