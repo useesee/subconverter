@@ -1,5 +1,5 @@
 proxies:
-  - {name: 🇺🇲 美国-cfs, server: www.uvsx.ml, port: 10079, type: vmess, uuid: 18C959EC-8933-CD7D-BBDD-46B0EA3B1C34, alterId: 1, cipher: auto, tls: true, network: ws, ws-path: /, ws-headers: {Host: www.uvsx.ml}}
+  - {name: 🇺🇲 美国-cfcs, server: c.uvsx.ml, port: 10079, type: vmess, uuid: 18C959EC-8933-CD7D-BBDD-46B0EA3B1C34, alterId: 1, cipher: auto, tls: true, network: ws, ws-path: /, ws-headers: {Host: www.uvsx.ml}}
   - {name: 🇺🇲 美国-cfbs, server: b.uvsx.ml, port: 2087, type: vmess, uuid: 18C959EC-8933-CD7D-BBDD-46B0EA3B1C34, alterId: 1, cipher: auto, tls: true, network: ws, ws-path: /, ws-headers: {Host: laxa.cutecloud.ml}}
 #   - {name: 🇺🇲 美国-cfa, server: a.uvsx.ml, port: 80, type: vmess, uuid: 18C959EC-8933-CD7D-BBDD-46B0EA3B1C34, alterId: 1, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: laxa.cutecloud.ml}}
 #   - {name: 🇺🇲 美国-cfb, server: b.uvsx.ml, port: 80, type: vmess, uuid: 18C959EC-8933-CD7D-BBDD-46B0EA3B1C34, alterId: 1, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: laxa.cutecloud.ml}}
