@@ -1,6 +1,6 @@
 proxies:
   - {name: 🇺🇲 美国-cf, server: www.uvsx.ml, port: 2086, type: vmess, uuid: 18C959EC-8933-CD7D-BBDD-46B0EA3B1C34, alterId: 1, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: ry725g7sft.baidu.com.jopo.ga}}
-  - {name: 🇺🇲 美国-cfc, server: c.uvsx.ml, port: 10100, type: vmess, uuid: 18C959EC-8933-CD7D-BBDD-46B0EA3B1C34, alterId: 1, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: jghyjdasdweqqereuk8oi77u65yre46w65u7ie2a2awt.jopo.ga}}
+#  - {name: 🇺🇲 美国-cfc, server: c.uvsx.ml, port: 10100, type: vmess, uuid: 18C959EC-8933-CD7D-BBDD-46B0EA3B1C34, alterId: 1, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: jghyjdasdweqqereuk8oi77u65yre46w65u7ie2a2awt.jopo.ga}}
 #   - {name: 🇺🇲 美国-cfb, server: b.uvsx.ml, port: 80, type: vmess, uuid: 18C959EC-8933-CD7D-BBDD-46B0EA3B1C34, alterId: 1, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: laxa.cutecloud.ml}}
 #   - {name: 🇺🇲 美国洛杉矶A-me, server: hndg8uehrwuigryusfcbyazifvwayregwausybvyudxhjfgsayugfugsegekuqf.laxa.cutecloud.gq, port: 80, type: vmess, uuid: 18C959EC-8933-CD7D-BBDD-46B0EA3B1C34, alterId: 0, cipher: auto, tls: false, network: ws, ws-path: /, ws-headers: {Host: pl.iqiyi.com}}
   - {name: 🇨🇳 解锁1, server: 106.52.127.72, port: 19951, type: http, tls: false}
