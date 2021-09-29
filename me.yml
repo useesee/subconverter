@@ -9,3 +9,8 @@ proxies:
   - {name: 🇨🇳 解锁4, server: taron.t, port: 200, type: http, tls: false}
   - {name: 🇨🇳 解锁5, server: music.lolico.me, port: 39000, type: http, tls: false}
   - {name: 🇨🇳 解锁, server: music.desperadoj.com, port: 30001, type: ss, cipher: aes-128-gcm, password: desperadoj.com_free_proxy_emx2}
+  - {name: 🇨🇳 解锁网易云节点1, server: music.lolico.me, port: 39000, type: http, tls: false1}
+  - {name: 🇨🇳 解锁网易云节点2, server: block4music.poetyin.me, port: 39000, type: http, tls: false1}
+  - {name: 🇨🇳 解锁网易云节点3, blockmusic.poetyin.me, port: 30003, type: ss, cipher: aes-128-gcm, password=desperadoj.com_free_proxy_emx2}
+  - {name: 🇨🇳 解锁网易云节点4, music.desperadoj.com, port: 30001, type: ss, cipher: aes-128-gcm, password=desperadoj.com_free_proxy_emx2}
+  - {name: 🇨🇳 解锁网易云节点5, music.desperadoj.com, port: 30003, type: ss, cipher: aes-128-gcm, password=desperadoj.com_free_proxy_emx2}
