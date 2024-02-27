@@ -1,2 +1,3 @@
 proxies:
-  - {name: 🎧 解锁网易云音乐, server: 192.168.1.10, port: 8080, type: http, tls: false, skip-cert-verify: true}
+  - {name: 🎧 解锁网易云音乐Home, server: 192.168.1.10, port: 8080, type: http, tls: false, skip-cert-verify: true}
+  - {name: 🎧 解锁网易云音乐Gp, server: 10.101.38.252, port: 8080, type: http, tls: false, skip-cert-verify: true}
