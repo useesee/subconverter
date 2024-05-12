@@ -1,16 +1,20 @@
+# chatGPT
+DOMAIN-KEYWORD,oaistatic
+
+# NetSuite
+DOMAIN-KEYWORD,netsuite
+DOMAIN-KEYWORD,akamaihd
+
 # game
 DOMAIN-SUFFIX,epicgames.com
 
 # others
 DOMAIN-KEYWORD,ipaspot
 DOMAIN-SUFFIX,duyaoss.com
-DOMAIN-SUFFIX,deepl.com
-DOMAIN-SUFFIX,masuit.com
 DOMAIN-SUFFIX,netfly.tv
+
+# 程序
 DOMAIN-SUFFIX,jsdelivr.net
-# chatGPT
-DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,deepl.com
 DOMAIN-SUFFIX,jetbrains.com
-# NetSuite
-DOMAIN-SUFFIX,netsuite.com
-DOMAIN-SUFFIX,akamaihd.net
+DOMAIN-SUFFIX,masuit.com
