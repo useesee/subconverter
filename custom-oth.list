@@ -6,6 +6,9 @@ DOMAIN-KEYWORD,netsuite
 DOMAIN,bcbolt446c5271-a.akamaihd.net
 DOMAIN,players.brightcove.net
 
+# Github 容器镜像仓库
+DOMAIN-SUFFIX,ghcr.io
+
 # game
 DOMAIN-SUFFIX,epicgames.com
 
