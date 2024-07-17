@@ -1,0 +1,2 @@
+vmess=104.26.0.66:2052, method=aes-128-gcm, password=d6b6d982-d52f-465a-b988-85670b23f64a, obfs=ws, obfs-host=cdn2.freegradely.xyz, obfs-uri=/github.com/Alvin9999, fast-open=false, udp-relay=false, aead=true, tag=🇺🇸 美国 CloudFlare1
+vmess=172.64.194.76:2086, method=aes-128-gcm, password=e9e3cc13-db48-4cc1-8c24-7626439a5339, obfs=ws, obfs-host=ip14.freegradely.xyz, obfs-uri=/github.com/Alvin9999, fast-open=false, udp-relay=false, aead=true, tag=🇺🇸 美国 CloudFlare2
