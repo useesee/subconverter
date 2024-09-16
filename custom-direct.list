@@ -1,6 +1,5 @@
+#DOMAIN-SUFFIX,roadshow.lvb.eastmoney.com
 
-;DOMAIN-SUFFIX,roadshow.lvb.eastmoney.com
-
-;DOC
+#DOC
 DOMAIN-SUFFIX,elastic.co
 DOMAIN-SUFFIX,hongene-sh.com
