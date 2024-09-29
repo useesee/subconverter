@@ -1,8 +1,8 @@
-http = 192.168.1.10:8080, username=none, password=none, over-tls=false, tag=🎧 解锁云音乐Hm
-http = 192.168.1.10:8081, username=none, password=none, over-tls=true, tls-verification=false, tag=🎧 解锁云音乐Hms
+http = 192.168.1.10:80, username=none, password=none, over-tls=false, tag=🎧 解锁云音乐Hm
+http = 192.168.1.10:443, username=none, password=none, over-tls=true, tls-verification=false, tag=🎧 解锁云音乐Hms
 http = 10.101.72.51:8080, username=none, password=none, over-tls=false, tag=🎧 解锁云音乐Gp
 http = 10.101.72.51:8080, username=none, password=none, over-tls=true, tls-verification=false, tag=🎧 解锁云音乐Gps
-http = 10.101.38.55:8080, username=none, password=none, over-tls=false, tag=🎧 解锁云音乐Gp1
-http = 10.101.38.55:8081, username=none, password=none, over-tls=true, tls-verification=false, tag=🎧 解锁云音乐Gps1
-http = netease.musicx.com:8080, username=none, password=none, over-tls=false, tag=🎧 解锁云音乐Book
-http = netease.musicx.com:8081, username=none, password=none, over-tls=true, tls-verification=false, tag=🎧 解锁云音乐Books
+http = 10.101.38.55:80, username=none, password=none, over-tls=false, tag=🎧 解锁云音乐Gp1
+http = 10.101.38.55:443, username=none, password=none, over-tls=true, tls-verification=false, tag=🎧 解锁云音乐Gps1
+http = netease.musicx.com:80, username=none, password=none, over-tls=false, tag=🎧 解锁云音乐Book
+http = netease.musicx.com:443, username=none, password=none, over-tls=true, tls-verification=false, tag=🎧 解锁云音乐Books
