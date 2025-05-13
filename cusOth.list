@@ -24,6 +24,7 @@ DOMAIN-SUFFIX,deepl.com
 DOMAIN-SUFFIX,jetbrains.com
 DOMAIN-SUFFIX,masuit.com
 DOMAIN-KEYWORD,macked
+DOMAIN-SUFFIX,greasyfork.org
 
 # Video
 DOMAIN-SUFFIX,emby.wtf
