@@ -18,13 +18,14 @@ DOMAIN-SUFFIX,duyaoss.com
 DOMAIN-KEYWORD,netfly
 DOMAIN-KEYWORD,sotv
 
-# 程序
+# 程序软件
 DOMAIN-SUFFIX,jsdelivr.net
 DOMAIN-SUFFIX,deepl.com
 DOMAIN-SUFFIX,jetbrains.com
 DOMAIN-SUFFIX,masuit.com
 DOMAIN-KEYWORD,macked
 DOMAIN-SUFFIX,greasyfork.org
+DOMAIN-SUFFIX,digit77.com
 
 # Video
 DOMAIN-SUFFIX,emby.wtf
