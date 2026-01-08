@@ -1,35 +1,21 @@
-# chatGPT
-DOMAIN-KEYWORD,oaistatic
-
-# NetSuite
-DOMAIN-KEYWORD,netsuite
-DOMAIN,bcbolt446c5271-a.akamaihd.net
-DOMAIN,players.brightcove.net
-
-# Github 容器镜像仓库
-DOMAIN-SUFFIX,ghcr.io
-
 # game
 DOMAIN-SUFFIX,epicgames.com
 
 # others
 DOMAIN-KEYWORD,ipaspot
-DOMAIN-SUFFIX,duyaoss.com
-DOMAIN-KEYWORD,netfly
 DOMAIN-KEYWORD,sotv
 
 # 程序软件
-DOMAIN-SUFFIX,jsdelivr.net
+DOMAIN-KEYWORD,macked
+DOMAIN-SUFFIX,digit77.com
+DOMAIN-SUFFIX,masuit.com
 DOMAIN-SUFFIX,deepl.com
 DOMAIN-SUFFIX,jetbrains.com
-DOMAIN-SUFFIX,masuit.com
-DOMAIN-KEYWORD,macked
-DOMAIN-SUFFIX,greasyfork.org
-DOMAIN-SUFFIX,digit77.com
 
 # Video
+DOMAIN-KEYWORD,netfly
+DOMAIN-KEYWORD,52netflix
 DOMAIN-SUFFIX,emby.wtf
 DOMAIN-SUFFIX,term.wtf
-DOMAIN-SUFFIX,52netflix
 DOMAIN-SUFFIX,nfyingshi.com
-
+DOMAIN-SUFFIX,ncat21.com
