@@ -1,0 +1,5 @@
+proxies:
+  - {name: "Surge-Http-MAC", server: SpaceXbook, port: 6152, type: http},
+  - {name: "Surge-Sock-MAC", server: SpaceXbook, port: 6153, type: socks5},
+  - {name: "Surge-Http-MAC1", server: 192.168.1.6, port: 6152, type: http},
+  - {name: "Surge-Sock-MAC1", server: 192.168.1.6, port: 6153, type: socks5}
