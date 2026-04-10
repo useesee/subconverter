@@ -21,7 +21,7 @@ proxy-providers:
     type: http
     url: "https://sub.store/download/collection/aaas?target=ClashMeta"
     path: ./providers/proxies/Aaas.yaml
-    interval: 0
+    interval: 90000
     health-check:
       enable: true
       interval: 600
@@ -32,7 +32,7 @@ proxy-providers:
     # url: "https://sub.store/download/collection/aaas?target=V2Ray"
     url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
     path: ./providers/proxies/Saas.yaml
-    interval: 0
+    interval: 90000
     health-check:
       enable: true
       interval: 600
@@ -46,7 +46,7 @@ proxy-groups:
     type: select
     use:
       - Aaas
-    filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
+    # filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
       - 🚁 天机智由
       - 🇺🇸 美区驿站
