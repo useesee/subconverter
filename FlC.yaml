@@ -3,6 +3,17 @@ allow-lan: true
 mode: rule
 log-level: info
 
+
+# ================= DNS（增强稳定性） =================
+dns:
+  enable: true
+  ipv6: true
+  enhanced-mode: fake-ip
+  nameserver:
+    - 223.5.5.5
+    - 1.1.1.1
+
+
 # ========== 代理订阅 ==========
 proxy-providers:
   Saas:
@@ -16,6 +27,17 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204
 
+proxy-providers:
+  Aaas:
+    type: http
+    url: "https://sub.store/download/collection/aaas?target=V2Ray"
+    path: ./providers/proxies/Aaas.yaml
+    interval: 0
+    health-check:
+      enable: true
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+
 # ========== 代理组 ==========
 proxy-groups:
 
@@ -23,8 +45,11 @@ proxy-groups:
     type: select
     use:
       - Saas
+    filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
       - 🚁 天机智由
+      - 🇺🇸 美区驿站
+      - 🇸🇬 新区驿站
       - 🎡 负载均衡
       - DIRECT
 
@@ -32,6 +57,24 @@ proxy-groups:
     type: url-test
     use:
       - Saas
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  # ================= 国家分组 =================
+
+  - name: 🇺🇸 美区驿站
+    type: url-test
+    use:
+      - Saas
+    filter: (?i)us|united states|america|美
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+
+  - name: 🇸🇬 新区驿站
+    type: url-test
+    use:
+      - Saas
+    filter: (?i)sg|singapore|新
     url: http://www.gstatic.com/generate_204
     interval: 300
 
