@@ -359,13 +359,13 @@ rule-providers:
     path: ./providers/rules/ProxyGFWlist.list
     interval: 0
 
-  cusDomestic:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDomestic.list
-    path: ./providers/rules/cusDomestic.list
-    interval: 0
+  # cusDomestic:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDomestic.list
+  #   path: ./providers/rules/cusDomestic.list
+  #   interval: 0
 
   cusOth:
     type: http
@@ -415,7 +415,7 @@ rules:
   - RULE-SET,BanEasyPrivacy,🆎 AdBlock
 
   - RULE-SET,cusOth,💠 三方跳动
-  - RULE-SET,cusDomestic,🇨🇳 华夏之声
+  # - RULE-SET,cusDomestic,🇨🇳 华夏之声
   - RULE-SET,ChinaMedia,🇨🇳 华夏之声
 
   - RULE-SET,AI,🤖 人工智能
