@@ -43,6 +43,7 @@ proxy-providers:
 proxy-groups:
 
   - name: 🔘 环球飞行
+    include-all: true
     type: select
     use:
       - Aaas
@@ -55,29 +56,35 @@ proxy-groups:
       - DIRECT
 
   - name: 🚁 天机智由
+    include-all: true
     type: url-test
     use:
       - Aaas
     url: http://www.gstatic.com/generate_204
     interval: 300
+    tolerance: 50
 
   # ================= 国家分组 =================
 
   - name: 🇺🇸 美区驿站
+    include-all: true
     type: url-test
     use:
       - Aaas
     filter: (?i)us|united states|america|美
     url: http://www.gstatic.com/generate_204
     interval: 300
+    tolerance: 50
 
   - name: 🇸🇬 新区驿站
+    include-all: true
     type: url-test
     use:
       - Aaas
     filter: (?i)sg|singapore|新
     url: http://www.gstatic.com/generate_204
     interval: 300
+    tolerance: 50
 
   - name: 🎡 负载均衡
     type: load-balance
@@ -85,6 +92,7 @@ proxy-groups:
       - Aaas
     url: http://www.gstatic.com/generate_204
     interval: 300
+    tolerance: 50
 
   - name: 🐟 漏网之鱼
     type: select
