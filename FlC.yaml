@@ -17,10 +17,10 @@ dns:
 # ========== 代理订阅 ==========
 proxy-providers:
 
-  Saas:
+  FreeSubSvr:
     type: http
     url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
-    path: ./providers/proxies/Saas.yaml
+    path: ./providers/proxies/FreeSubSvr.yaml
     interval: 0
     health-check:
       enable: false
@@ -29,12 +29,25 @@ proxy-providers:
     proxies:
       - DIRECT
 
-  Faas:
+  GitSubSvr:
+    type: http
+    # url: "https://sub.store/download/collection/aaas?target=V2Ray"
+    url: "https://raw.githubusercontent.com/useesee/subconverter/master/GitSub.yaml"
+    path: ./providers/proxies/GitSubSvr.yaml
+    interval: 0
+    health-check:
+      enable: false
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+    proxies:
+      - DIRECT
+  
+  SurgeSvr:
     type: http
     # url: "https://sub.store/download/collection/aaas?target=V2Ray"
     # url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
-    url: "https://raw.githubusercontent.com/useesee/subconverter/master/proxy.yaml"
-    path: ./providers/proxies/Faas.yaml
+    url: "https://raw.githubusercontent.com/useesee/subconverter/master/Surge.yaml"
+    path: ./providers/proxies/SurgeSvr.yaml
     interval: 0
     health-check:
       enable: false
@@ -51,11 +64,13 @@ proxy-groups:
     include-all: false
     type: select
     use:
-      - Saas
-      - Faas
+      - FreeSubSvr
+      - GitSubSvr
+      - SurgeSvr
     filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
       - 🚁 天机智由
+      - 🇭🇰 港区驿站
       - 🇺🇸 美区驿站
       - 🇸🇬 新区驿站
       - 🎡 负载均衡
@@ -65,8 +80,9 @@ proxy-groups:
     include-all: false
     type: url-test
     use:
-      - Saas
-      - Faas
+      - FreeSubSvr
+      - GitSubSvr
+      - SurgeSvr
     filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -74,11 +90,21 @@ proxy-groups:
 
   # ================= 国家分组 =================
 
+  - name: 🇭🇰 港区驿站
+    include-all: false
+    type: url-test
+    use:
+      - SurgeSvr
+    # filter: (?i)sg|singapore|新
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
   - name: 🇺🇸 美区驿站
     include-all: false
     type: url-test
     use:
-      - Saas
+      - FreeSubSvr
     # filter: (?i)us|united states|america|美
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -88,7 +114,7 @@ proxy-groups:
     include-all: false
     type: url-test
     use:
-      - Faas
+      - GitSubSvr
     # filter: (?i)sg|singapore|新
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -97,8 +123,9 @@ proxy-groups:
   - name: 🎡 负载均衡
     type: load-balance
     use:
-      - Saas
-      - Faas
+      - FreeSubSvr
+      - GitSubSvr
+      - SurgeSvr
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -112,8 +139,9 @@ proxy-groups:
   - name: 🤖 人工智能
     type: select
     use:
-      - Saas
-      - Faas
+      - FreeSubSvr
+      - GitSubSvr
+      - SurgeSvr
     proxies:
       - 🔘 环球飞行
 
@@ -185,168 +213,168 @@ rule-providers:
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
     path: ./providers/rules/LocalAreaNetwork.yaml
-    interval: 86400
+    interval: 0
 
   UnBan:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
     path: ./providers/rules/UnBan.yaml
-    interval: 86400
+    interval: 0
 
   cusDirect:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDirect.list
     path: ./providers/rules/cusDirect.yaml
-    interval: 86400
+    interval: 0
 
   BanAD:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
     path: ./providers/rules/BanAD.yaml
-    interval: 86400
+    interval: 0
 
   cusDeny:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDeny.list
     path: ./providers/rules/cusDeny.yaml
-    interval: 86400
+    interval: 0
 
   BanProgramAD:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
     path: ./providers/rules/BanProgramAD.yaml
-    interval: 86400
+    interval: 0
 
   BanEasyList:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
     path: ./providers/rules/BanEasyList.yaml
-    interval: 86400
+    interval: 0
 
   BanEasyListChina:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
     path: ./providers/rules/BanEasyListChina.yaml
-    interval: 86400
+    interval: 0
 
   BanEasyPrivacy:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list
     path: ./providers/rules/BanEasyPrivacy.yaml
-    interval: 86400
+    interval: 0
 
   GoogleFCM:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
     path: ./providers/rules/GoogleFCM.yaml
-    interval: 86400
+    interval: 0
 
   GoogleCN:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
     path: ./providers/rules/GoogleCN.yaml
-    interval: 86400
+    interval: 0
 
   OneDrive:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/OneDrive.list
     path: ./providers/rules/OneDrive.yaml
-    interval: 86400
+    interval: 0
 
   Microsoft:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
     path: ./providers/rules/Microsoft.yaml
-    interval: 86400
+    interval: 0
 
   AI:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list
     path: ./providers/rules/AI.yaml
-    interval: 86400
+    interval: 0
 
   OpenAi:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list
     path: ./providers/rules/OpenAi.yaml
-    interval: 86400
+    interval: 0
 
   Apple:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
     path: ./providers/rules/Apple.yaml
-    interval: 86400
+    interval: 0
 
   ChinaMedia:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list
     path: ./providers/rules/ChinaMedia.yaml
-    interval: 86400
+    interval: 0
 
   ProxyMedia:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
     path: ./providers/rules/ProxyMedia.yaml
-    interval: 86400
+    interval: 0
 
   ProxyGFWlist:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list
     path: ./providers/rules/ProxyGFWlist.yaml
-    interval: 86400
+    interval: 0
 
   cusDomestic:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDomestic.list
     path: ./providers/rules/cusDomestic.yaml
-    interval: 86400
+    interval: 0
 
   cusOth:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/useesee/subconverter/master/cusOth.list
     path: ./providers/rules/cusOth.yaml
-    interval: 86400
+    interval: 0
 
   NetEaseMusic:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NetEaseMusic/NetEaseMusic.list
     path: ./providers/rules/NetEaseMusic.yaml
-    interval: 86400
+    interval: 0
 
   ChinaDomain:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
     path: ./providers/rules/ChinaDomain.yaml
-    interval: 86400
+    interval: 0
 
   ChinaCompanyIp:
     type: http
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
     path: ./providers/rules/ChinaCompanyIp.yaml
-    interval: 86400
+    interval: 0
 
 
 # ========== 规则 ==========
