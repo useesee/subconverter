@@ -425,10 +425,10 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,NetEaseMusic,🎵 网易音乐
 
-  - RULE-SET,GoogleCN,🎯 全球直连
   - RULE-SET,ProxyMedia,🌍 环球视听
 
   - RULE-SET,OneDrive,🔘 环球飞行
+  - RULE-SET,GoogleCN,🔘 环球飞行
   - RULE-SET,GoogleFCM,🔘 环球飞行
   - RULE-SET,ProxyGFWlist,🔘 环球飞行
 
