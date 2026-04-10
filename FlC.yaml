@@ -17,27 +17,31 @@ dns:
 # ========== 代理订阅 ==========
 proxy-providers:
 
-  Aaas:
+  Saas:
     type: http
-    url: "https://sub.store/download/collection/aaas?target=ClashMeta"
-    path: ./providers/proxies/Aaas.yaml
-    interval: 90000
+    url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
+    path: ./providers/proxies/Saas.yaml
+    interval: 0
     health-check:
-      enable: true
+      enable: false
       interval: 600
       url: http://www.gstatic.com/generate_204
+    proxies:
+      - DIRECT
 
-  Saas:
+  Faas:
     type: http
     # url: "https://sub.store/download/collection/aaas?target=V2Ray"
     # url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
-    url: "https://raw.githubusercontent.com/useesee/subconverter/refs/heads/master/proxy.yaml"
-    path: ./providers/proxies/Saas.yaml
-    interval: 90000
+    url: "https://raw.githubusercontent.com/useesee/subconverter/master/proxy.yaml"
+    path: ./providers/proxies/Faas.yaml
+    interval: 0
     health-check:
-      enable: true
+      enable: false
       interval: 600
       url: http://www.gstatic.com/generate_204
+    proxies:
+      - DIRECT
 
 
 # ========== 代理组 ==========
@@ -47,9 +51,9 @@ proxy-groups:
     include-all: false
     type: select
     use:
-      - Aaas
       - Saas
-    # filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
+      - Faas
+    filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
       - 🚁 天机智由
       - 🇺🇸 美区驿站
@@ -61,8 +65,9 @@ proxy-groups:
     include-all: false
     type: url-test
     use:
-      - Aaas
       - Saas
+      - Faas
+    filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -73,7 +78,7 @@ proxy-groups:
     include-all: false
     type: url-test
     use:
-      - Aaas
+      - Saas
     # filter: (?i)us|united states|america|美
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -83,7 +88,7 @@ proxy-groups:
     include-all: false
     type: url-test
     use:
-      - Saas
+      - Faas
     # filter: (?i)sg|singapore|新
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -92,8 +97,8 @@ proxy-groups:
   - name: 🎡 负载均衡
     type: load-balance
     use:
-      - Aaas
       - Saas
+      - Faas
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
