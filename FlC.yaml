@@ -17,22 +17,22 @@ dns:
 # ========== 代理订阅 ==========
 proxy-providers:
 
-  Saas:
+  Aaas:
     type: http
     url: "https://sub.store/download/collection/aaas?target=ClashMeta"
-    path: ./providers/proxies/Saas.yaml
+    path: ./providers/proxies/Aaas.yaml
     interval: 90000
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
 
-  Aaas:
+  Saas:
     type: http
     # url: "https://sub.store/download/collection/aaas?target=V2Ray"
     # url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
     url: "https://raw.githubusercontent.com/useesee/subconverter/refs/heads/master/proxy.yaml"
-    path: ./providers/proxies/Aaas.yaml
+    path: ./providers/proxies/Saas.yaml
     interval: 90000
     health-check:
       enable: true
@@ -48,6 +48,7 @@ proxy-groups:
     type: select
     use:
       - Aaas
+      - Saas
     # filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
       - 🚁 天机智由
@@ -61,6 +62,7 @@ proxy-groups:
     type: url-test
     use:
       - Aaas
+      - Saas
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -72,7 +74,7 @@ proxy-groups:
     type: url-test
     use:
       - Aaas
-    filter: (?i)us|united states|america|美
+    # filter: (?i)us|united states|america|美
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -81,8 +83,8 @@ proxy-groups:
     include-all: false
     type: url-test
     use:
-      - Aaas
-    filter: (?i)sg|singapore|新
+      - Saas
+    # filter: (?i)sg|singapore|新
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -91,6 +93,7 @@ proxy-groups:
     type: load-balance
     use:
       - Aaas
+      - Saas
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -105,6 +108,7 @@ proxy-groups:
     type: select
     use:
       - Aaas
+      - Saas
     proxies:
       - 🔘 环球飞行
 
