@@ -1,0 +1,244 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+
+
+# ================= DNS（增强稳定性） =================
+dns:
+  enable: true
+  ipv6: true
+  enhanced-mode: fake-ip
+  nameserver:
+    - 223.5.5.5
+    - 1.1.1.1
+    - 119.29.29.29
+
+
+# ========== 代理订阅 ==========
+proxy-providers:
+
+  FreeSubSvr:
+    type: http
+    url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
+    path: ./providers/proxies/FreeSubSvr.yaml
+    interval: 0
+    health-check:
+      enable: false
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+    proxies:
+      - DIRECT
+
+  GitSubSvr:
+    type: http
+    # url: "https://sub.store/download/collection/aaas?target=V2Ray"
+    url: "https://raw.githubusercontent.com/useesee/subconverter/master/GitSub.yaml"
+    path: ./providers/proxies/GitSubSvr.yaml
+    interval: 0
+    health-check:
+      enable: false
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+    proxies:
+      - DIRECT
+  
+  GitSurgeSvr:
+    type: http
+    url: "https://raw.githubusercontent.com/useesee/subconverter/master/GitSurge.yaml"
+    path: ./providers/proxies/GitSurgeSvr.yaml
+    interval: 0
+    health-check:
+      enable: false
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+    proxies:
+      - DIRECT
+
+
+# ========== 代理组 ==========
+proxy-groups:
+
+  - name: 🔘 环球飞行
+    include-all: false
+    type: select
+    use:
+      - FreeSubSvr
+      - GitSubSvr
+      - GitSurgeSvr
+    filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
+    proxies:
+      - 🚁 天机智由
+      - 🇭🇰 港区驿站
+      - 🇺🇸 美区驿站
+      - 🇸🇬 新区驿站
+      - 🎡 负载均衡
+      - DIRECT
+
+  - name: 🚁 天机智由
+    include-all: false
+    type: url-test
+    use:
+      - FreeSubSvr
+      - GitSubSvr
+      - GitSurgeSvr
+    filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  # ================= 国家分组 =================
+
+  - name: 🇭🇰 港区驿站
+    include-all: false
+    type: url-test
+    use:
+      - GitSurgeSvr
+    # filter: (?i)hk|hongkong|港
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🇺🇸 美区驿站
+    include-all: false
+    type: url-test
+    use:
+      - FreeSubSvr
+    # filter: (?i)us|united states|america|美
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🇸🇬 新区驿站
+    include-all: false
+    type: url-test
+    use:
+      - GitSubSvr
+    # filter: (?i)sg|singapore|新
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🎡 负载均衡
+    type: load-balance
+    use:
+      - FreeSubSvr
+      - GitSubSvr
+      - GitSurgeSvr
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔘 环球飞行
+
+  - name: 🤖 人工智能
+    type: select
+    use:
+      - FreeSubSvr
+      - GitSubSvr
+      - GitSurgeSvr
+    proxies:
+      - 🔘 环球飞行
+
+  - name: 💠 三方跳动
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔘 环球飞行
+
+  - name: 🇨🇳 华夏之声
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔘 环球飞行
+
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔘 环球飞行
+
+  - name: 🍎 苹果服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔘 环球飞行
+
+  - name: 🎵 网易音乐
+    type: select
+    proxies:
+      - 🎯 全球直连
+
+  - name: 🌍 环球视听
+    type: select
+    proxies:
+      - 🔘 环球飞行
+      - 🎯 全球直连
+
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🔘 环球飞行
+
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - 🎯 全球直连
+
+  - name: 🔥 应用净化
+    type: select
+    proxies:
+      - REJECT
+      - 🎯 全球直连
+
+  - name: 🆎 AdBlock
+    type: select
+    proxies:
+      - REJECT
+      - 🎯 全球直连
+
+
+# ========== 规则订阅 ==========
+rule-providers:
+
+  cusDirect:
+    type: http
+    format: text
+    behavior: classical
+    url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDirect.list
+    path: ./providers/rules/cusDirect.list
+    interval: 0
+
+  cusOth:
+    type: http
+    format: text
+    behavior: classical
+    url: https://raw.githubusercontent.com/useesee/subconverter/master/cusOth.list
+    path: ./providers/rules/cusOth.list
+    interval: 0
+
+
+# ========== 规则 ==========
+rules:
+
+  - RULE-SET,cusDirect,🎯 全球直连
+  # - RULE-SET,cusDomestic,🇨🇳 华夏之声
+  - RULE-SET,cusOth,💠 三方跳动
+
+  - GEOSITE,category-ads-all,🆎 AdBlock
+
+  - GEOSITE,apple,🍎 苹果服务
+  - GEOSITE,microsoft,Ⓜ️ 微软服务
+  - GEOSITE,youtube,🌍 环球视听
+  - GEOSITE,openai,🤖 人工智能
+  - GEOSITE,geolocation-!cn,🔘 环球飞行
+
+  - GEOSITE,cn,🎯 全球直连
+  - GEOIP,CN,🎯 全球直连
+  - MATCH,🐟 漏网之鱼
