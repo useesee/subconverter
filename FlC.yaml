@@ -17,21 +17,22 @@ dns:
 # ========== 代理订阅 ==========
 proxy-providers:
 
-  Aaas:
+  Saas:
     type: http
     url: "https://sub.store/download/collection/aaas?target=ClashMeta"
-    path: ./providers/proxies/Aaas.yaml
+    path: ./providers/proxies/Saas.yaml
     interval: 90000
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
 
-  Saas:
+  Aaas:
     type: http
     # url: "https://sub.store/download/collection/aaas?target=V2Ray"
-    url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
-    path: ./providers/proxies/Saas.yaml
+    # url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
+    url: "https://raw.githubusercontent.com/useesee/subconverter/refs/heads/master/proxy.yaml"
+    path: ./providers/proxies/Aaas.yaml
     interval: 90000
     health-check:
       enable: true
