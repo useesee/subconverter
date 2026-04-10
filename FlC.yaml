@@ -16,6 +16,7 @@ dns:
 
 # ========== 代理订阅 ==========
 proxy-providers:
+
   Saas:
     type: http
     # url: "https://sub.store/download/collection/aaas?target=V2Ray"
@@ -27,7 +28,6 @@ proxy-providers:
       interval: 600
       url: http://www.gstatic.com/generate_204
 
-proxy-providers:
   Aaas:
     type: http
     url: "https://sub.store/download/collection/aaas?target=V2Ray"
@@ -37,6 +37,7 @@ proxy-providers:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
+
 
 # ========== 代理组 ==========
 proxy-groups:
