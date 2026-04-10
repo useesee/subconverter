@@ -42,12 +42,12 @@ proxy-providers:
     proxies:
       - DIRECT
   
-  SurgeSvr:
+  GitGitSurgeSvr:
     type: http
     # url: "https://sub.store/download/collection/aaas?target=V2Ray"
     # url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
-    url: "https://raw.githubusercontent.com/useesee/subconverter/master/Surge.yaml"
-    path: ./providers/proxies/SurgeSvr.yaml
+    url: "https://raw.githubusercontent.com/useesee/subconverter/master/GitSurge.yaml"
+    path: ./providers/proxies/GitGitSurgeSvr.yaml
     interval: 0
     health-check:
       enable: false
@@ -66,7 +66,7 @@ proxy-groups:
     use:
       - FreeSubSvr
       - GitSubSvr
-      - SurgeSvr
+      - GitSurgeSvr
     filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
       - 🚁 天机智由
@@ -82,7 +82,7 @@ proxy-groups:
     use:
       - FreeSubSvr
       - GitSubSvr
-      - SurgeSvr
+      - GitSurgeSvr
     filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -94,7 +94,7 @@ proxy-groups:
     include-all: false
     type: url-test
     use:
-      - SurgeSvr
+      - GitSurgeSvr
     # filter: (?i)sg|singapore|新
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -125,7 +125,7 @@ proxy-groups:
     use:
       - FreeSubSvr
       - GitSubSvr
-      - SurgeSvr
+      - GitSurgeSvr
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -141,7 +141,7 @@ proxy-groups:
     use:
       - FreeSubSvr
       - GitSubSvr
-      - SurgeSvr
+      - GitSurgeSvr
     proxies:
       - 🔘 环球飞行
 
