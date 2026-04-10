@@ -46,6 +46,7 @@ proxy-groups:
     type: select
     use:
       - Saas
+      - Aaas
     filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
       - 🚁 天机智由
@@ -58,6 +59,7 @@ proxy-groups:
     type: url-test
     use:
       - Saas
+      - Aaas
     url: http://www.gstatic.com/generate_204
     interval: 300
 
