@@ -17,21 +17,21 @@ dns:
 # ========== 代理订阅 ==========
 proxy-providers:
 
-  Saas:
+  Aaas:
     type: http
-    # url: "https://sub.store/download/collection/aaas?target=V2Ray"
-    url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
-    path: ./providers/proxies/Saas.yaml
+    url: "https://sub.store/download/collection/aaas?target=ClashMeta"
+    path: ./providers/proxies/Aaas.yaml
     interval: 0
     health-check:
       enable: true
       interval: 600
       url: http://www.gstatic.com/generate_204
 
-  Aaas:
+  Saas:
     type: http
-    url: "https://sub.store/download/collection/aaas?target=V2Ray"
-    path: ./providers/proxies/Aaas.yaml
+    # url: "https://sub.store/download/collection/aaas?target=V2Ray"
+    url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
+    path: ./providers/proxies/Saas.yaml
     interval: 0
     health-check:
       enable: true
@@ -45,7 +45,6 @@ proxy-groups:
   - name: 🔘 环球飞行
     type: select
     use:
-      - Saas
       - Aaas
     filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
@@ -58,7 +57,6 @@ proxy-groups:
   - name: 🚁 天机智由
     type: url-test
     use:
-      - Saas
       - Aaas
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -68,7 +66,7 @@ proxy-groups:
   - name: 🇺🇸 美区驿站
     type: url-test
     use:
-      - Saas
+      - Aaas
     filter: (?i)us|united states|america|美
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -76,7 +74,7 @@ proxy-groups:
   - name: 🇸🇬 新区驿站
     type: url-test
     use:
-      - Saas
+      - Aaas
     filter: (?i)sg|singapore|新
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -84,7 +82,7 @@ proxy-groups:
   - name: 🎡 负载均衡
     type: load-balance
     use:
-      - Saas
+      - Aaas
     url: http://www.gstatic.com/generate_204
     interval: 300
 
@@ -97,7 +95,7 @@ proxy-groups:
   - name: 🤖 人工智能
     type: select
     use:
-      - Saas
+      - Aaas
     proxies:
       - 🔘 环球飞行
 
