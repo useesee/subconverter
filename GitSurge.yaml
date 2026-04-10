@@ -1,0 +1,7 @@
+proxies:
+  - {name: "SurgeSock05", server: 192.168.1.5, port: 6153, type: socks5},
+  - {name: "SurgeSock06", server: 192.168.1.6, port: 6153, type: socks5},
+  - {name: "SurgeSock07", server: 192.168.1.7, port: 6153, type: socks5},
+  - {name: "SurgeSock08", server: 192.168.1.8, port: 6153, type: socks5},
+  - {name: "SurgeSock09", server: 192.168.1.9, port: 6153, type: socks5},
+  - {name: "SurgeSock62", server: 10.101.38.62, port: 6153, type: socks5}
