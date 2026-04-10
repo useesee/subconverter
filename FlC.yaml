@@ -112,8 +112,8 @@ proxy-groups:
   - name: 🤖 人工智能
     type: select
     use:
-      - Aaas
       - Saas
+      - Faas
     proxies:
       - 🔘 环球飞行
 
