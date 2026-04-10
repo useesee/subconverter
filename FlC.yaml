@@ -44,7 +44,7 @@ proxy-providers:
 proxy-groups:
 
   - name: 🔘 环球飞行
-    include-all: true
+    include-all: false
     type: select
     use:
       - Aaas
@@ -57,7 +57,7 @@ proxy-groups:
       - DIRECT
 
   - name: 🚁 天机智由
-    include-all: true
+    include-all: false
     type: url-test
     use:
       - Aaas
@@ -68,7 +68,7 @@ proxy-groups:
   # ================= 国家分组 =================
 
   - name: 🇺🇸 美区驿站
-    include-all: true
+    include-all: false
     type: url-test
     use:
       - Aaas
@@ -78,7 +78,7 @@ proxy-groups:
     tolerance: 50
 
   - name: 🇸🇬 新区驿站
-    include-all: true
+    include-all: false
     type: url-test
     use:
       - Aaas
