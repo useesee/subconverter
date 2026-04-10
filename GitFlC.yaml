@@ -209,170 +209,194 @@ rule-providers:
 
   LocalAreaNetwork:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/LocalAreaNetwork.list
-    path: ./providers/rules/LocalAreaNetwork.yaml
+    path: ./providers/rules/LocalAreaNetwork.list
     interval: 0
 
   UnBan:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/UnBan.list
-    path: ./providers/rules/UnBan.yaml
+    path: ./providers/rules/UnBan.list
     interval: 0
 
   cusDirect:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDirect.list
-    path: ./providers/rules/cusDirect.yaml
+    path: ./providers/rules/cusDirect.list
     interval: 0
 
   BanAD:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanAD.list
-    path: ./providers/rules/BanAD.yaml
+    path: ./providers/rules/BanAD.list
     interval: 0
 
   cusDeny:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDeny.list
-    path: ./providers/rules/cusDeny.yaml
+    path: ./providers/rules/cusDeny.list
     interval: 0
 
   BanProgramAD:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanProgramAD.list
-    path: ./providers/rules/BanProgramAD.yaml
+    path: ./providers/rules/BanProgramAD.list
     interval: 0
 
   BanEasyList:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
-    path: ./providers/rules/BanEasyList.yaml
+    path: ./providers/rules/BanEasyList.list
     interval: 0
 
   BanEasyListChina:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyListChina.list
-    path: ./providers/rules/BanEasyListChina.yaml
+    path: ./providers/rules/BanEasyListChina.list
     interval: 0
 
   BanEasyPrivacy:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list
-    path: ./providers/rules/BanEasyPrivacy.yaml
+    path: ./providers/rules/BanEasyPrivacy.list
     interval: 0
 
   GoogleFCM:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/GoogleFCM.list
-    path: ./providers/rules/GoogleFCM.yaml
+    path: ./providers/rules/GoogleFCM.list
     interval: 0
 
   GoogleCN:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/GoogleCN.list
-    path: ./providers/rules/GoogleCN.yaml
+    path: ./providers/rules/GoogleCN.list
     interval: 0
 
   OneDrive:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/OneDrive.list
-    path: ./providers/rules/OneDrive.yaml
+    path: ./providers/rules/OneDrive.list
     interval: 0
 
   Microsoft:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
-    path: ./providers/rules/Microsoft.yaml
+    path: ./providers/rules/Microsoft.list
     interval: 0
 
   AI:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list
-    path: ./providers/rules/AI.yaml
+    path: ./providers/rules/AI.list
     interval: 0
 
   OpenAi:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list
-    path: ./providers/rules/OpenAi.yaml
+    path: ./providers/rules/OpenAi.list
     interval: 0
 
   Apple:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
-    path: ./providers/rules/Apple.yaml
+    path: ./providers/rules/Apple.list
     interval: 0
 
   ChinaMedia:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaMedia.list
-    path: ./providers/rules/ChinaMedia.yaml
+    path: ./providers/rules/ChinaMedia.list
     interval: 0
 
   ProxyMedia:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyMedia.list
-    path: ./providers/rules/ProxyMedia.yaml
+    path: ./providers/rules/ProxyMedia.list
     interval: 0
 
   ProxyGFWlist:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ProxyGFWlist.list
-    path: ./providers/rules/ProxyGFWlist.yaml
+    path: ./providers/rules/ProxyGFWlist.list
     interval: 0
 
   cusDomestic:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDomestic.list
-    path: ./providers/rules/cusDomestic.yaml
+    path: ./providers/rules/cusDomestic.list
     interval: 0
 
   cusOth:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/useesee/subconverter/master/cusOth.list
-    path: ./providers/rules/cusOth.yaml
+    path: ./providers/rules/cusOth.list
     interval: 0
 
   NetEaseMusic:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NetEaseMusic/NetEaseMusic.list
-    path: ./providers/rules/NetEaseMusic.yaml
+    path: ./providers/rules/NetEaseMusic.list
     interval: 0
 
   ChinaDomain:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaDomain.list
-    path: ./providers/rules/ChinaDomain.yaml
+    path: ./providers/rules/ChinaDomain.list
     interval: 0
 
   ChinaCompanyIp:
     type: http
+    format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/ChinaCompanyIp.list
-    path: ./providers/rules/ChinaCompanyIp.yaml
+    path: ./providers/rules/ChinaCompanyIp.list
     interval: 0
 
 
