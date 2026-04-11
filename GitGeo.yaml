@@ -49,17 +49,17 @@ proxy-providers:
     proxies:
       - DIRECT
   
-  GitSurgeSvr:
-    type: http
-    url: "https://raw.githubusercontent.com/useesee/subconverter/master/GitSurge.yaml"
-    path: ./providers/proxies/GitSurgeSvr.yaml
-    interval: 0
-    health-check:
-      enable: false
-      interval: 600
-      url: http://www.gstatic.com/generate_204
-    proxies:
-      - DIRECT
+  # GitSurgeSvr:
+  #   type: http
+  #   url: "https://raw.githubusercontent.com/useesee/subconverter/master/GitSurge.yaml"
+  #   path: ./providers/proxies/GitSurgeSvr.yaml
+  #   interval: 0
+  #   health-check:
+  #     enable: false
+  #     interval: 600
+  #     url: http://www.gstatic.com/generate_204
+  #   proxies:
+  #     - DIRECT
 
 
 # ========== 代理组 ==========
@@ -71,13 +71,11 @@ proxy-groups:
     use:
       - FreeSubSvr
       - GitSubSvr
-      - GitSurgeSvr
     filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
       - 🚁 天机智由
       - 🇭🇰 港区驿站
       - 🇺🇸 美区驿站
-      - 🇸🇬 新区驿站
       - 🎡 负载均衡
       - DIRECT
 
@@ -87,7 +85,6 @@ proxy-groups:
     use:
       - FreeSubSvr
       - GitSubSvr
-      - GitSurgeSvr
     filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -99,7 +96,7 @@ proxy-groups:
     include-all: false
     type: url-test
     use:
-      - GitSurgeSvr
+      - GitSubSvr
     # filter: (?i)hk|hongkong|港
     url: http://www.gstatic.com/generate_204
     interval: 300
@@ -115,22 +112,11 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-  - name: 🇸🇬 新区驿站
-    include-all: false
-    type: url-test
-    use:
-      - GitSubSvr
-    # filter: (?i)sg|singapore|新
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: 🎡 负载均衡
     type: load-balance
     use:
       - FreeSubSvr
       - GitSubSvr
-      - GitSurgeSvr
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
@@ -146,7 +132,6 @@ proxy-groups:
     use:
       - FreeSubSvr
       - GitSubSvr
-      - GitSurgeSvr
     proxies:
       - 🔘 环球飞行
 
@@ -168,11 +153,11 @@ proxy-groups:
       - 🎯 全球直连
       - 🔘 环球飞行
 
-  - name: 🍎 苹果服务
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🔘 环球飞行
+  # - name: 🍎 苹果服务
+  #   type: select
+  #   proxies:
+  #     - 🎯 全球直连
+  #     - 🔘 环球飞行
 
   # - name: 🎵 网易音乐
   #   type: select
@@ -277,13 +262,13 @@ rule-providers:
     path: ./providers/rules/Microsoft.list
     interval: 0
 
-  Apple:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
-    path: ./providers/rules/Apple.list
-    interval: 0
+  # Apple:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+  #   path: ./providers/rules/Apple.list
+  #   interval: 0
 
   AI:
     type: http
@@ -347,7 +332,7 @@ rules:
   - RULE-SET,OneDrive,Ⓜ️ 微软服务
 
   # 🍎 Apple 服务
-  - GEOSITE,apple,🍎 苹果服务
+  # - GEOSITE,apple,🍎 苹果服务
 
   # 🤖 AI 服务（精确优先）
   - GEOSITE,openai,🤖 人工智能
