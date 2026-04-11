@@ -156,11 +156,11 @@ proxy-groups:
       - 🎯 全球直连
       - 🔘 环球飞行
 
-  - name: 🇨🇳 华夏之声
-    type: select
-    proxies:
-      - 🎯 全球直连
-      - 🔘 环球飞行
+  # - name: 🇨🇳 华夏之声
+  #   type: select
+  #   proxies:
+  #     - 🎯 全球直连
+  #     - 🔘 环球飞行
 
   - name: Ⓜ️ 微软服务
     type: select
@@ -174,10 +174,10 @@ proxy-groups:
       - 🎯 全球直连
       - 🔘 环球飞行
 
-  - name: 🎵 网易音乐
-    type: select
-    proxies:
-      - 🎯 全球直连
+  # - name: 🎵 网易音乐
+  #   type: select
+  #   proxies:
+  #     - 🎯 全球直连
 
   - name: 🌍 环球视听
     type: select
@@ -197,11 +197,11 @@ proxy-groups:
       - REJECT
       - 🎯 全球直连
 
-  - name: 🔥 应用净化
-    type: select
-    proxies:
-      - REJECT
-      - 🎯 全球直连
+  # - name: 🔥 应用净化
+  #   type: select
+  #   proxies:
+  #     - REJECT
+  #     - 🎯 全球直连
 
   - name: 🆎 AdBlock
     type: select
@@ -245,13 +245,13 @@ rule-providers:
   #   path: ./providers/rules/BanEasyList.list
   #   interval: 0
 
-  BanEasyPrivacy:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list
-    path: ./providers/rules/BanEasyPrivacy.list
-    interval: 0
+  # BanEasyPrivacy:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list
+  #   path: ./providers/rules/BanEasyPrivacy.list
+  #   interval: 0
 
   OneDrive:
     type: http
@@ -301,13 +301,13 @@ rule-providers:
   #   path: ./providers/rules/cusDomestic.list
   #   interval: 0
 
-  NetEaseMusic:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NetEaseMusic/NetEaseMusic.list
-    path: ./providers/rules/NetEaseMusic.list
-    interval: 0
+  # NetEaseMusic:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NetEaseMusic/NetEaseMusic.list
+  #   path: ./providers/rules/NetEaseMusic.list
+  #   interval: 0
 
 
 # ========== 规则 ==========
@@ -355,11 +355,12 @@ rules:
   - GEOSITE,apple,🍎 苹果服务
   # Ⓜ️ Microsoft 服务
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,OneDrive,Ⓜ️ 微软服务
   # 📱 Telegram（高动态服务，三层防漏）
   - GEOSITE,telegram,🔘 环球飞行
   # - DOMAIN-KEYWORD,telegram,🔘 环球飞行
   # YouTube 服务
-  - GEOSITE,youtube,🔘 环球飞行
+  # - GEOSITE,youtube,🔘 环球飞行
   # 🌐 Google 生态（含API / Gemini底层）
   # - GEOSITE,google,🔘 环球飞行
 
