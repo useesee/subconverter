@@ -221,21 +221,29 @@ rule-providers:
     path: ./providers/rules/cusDirect.list
     interval: 0
 
-  cusDeny:
+  cusOth:
     type: http
     format: text
     behavior: classical
-    url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDeny.list
-    path: ./providers/rules/cusDeny.list
+    url: https://raw.githubusercontent.com/useesee/subconverter/master/cusOth.list
+    path: ./providers/rules/cusOth.list
     interval: 0
 
-  BanEasyList:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
-    path: ./providers/rules/BanEasyList.list
-    interval: 0
+  # cusDeny:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDeny.list
+  #   path: ./providers/rules/cusDeny.list
+  #   interval: 0
+
+  # BanEasyList:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
+  #   path: ./providers/rules/BanEasyList.list
+  #   interval: 0
 
   BanEasyPrivacy:
     type: http
@@ -261,6 +269,14 @@ rule-providers:
     path: ./providers/rules/Microsoft.list
     interval: 0
 
+  Apple:
+    type: http
+    format: text
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+    path: ./providers/rules/Apple.list
+    interval: 0
+
   AI:
     type: http
     format: text
@@ -277,14 +293,6 @@ rule-providers:
     path: ./providers/rules/OpenAi.list
     interval: 0
 
-  Apple:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
-    path: ./providers/rules/Apple.list
-    interval: 0
-
   # cusDomestic:
   #   type: http
   #   format: text
@@ -292,14 +300,6 @@ rule-providers:
   #   url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDomestic.list
   #   path: ./providers/rules/cusDomestic.list
   #   interval: 0
-
-  cusOth:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/useesee/subconverter/master/cusOth.list
-    path: ./providers/rules/cusOth.list
-    interval: 0
 
   NetEaseMusic:
     type: http
@@ -314,14 +314,7 @@ rule-providers:
 rules:
 
   # =========================================================
-  # 0️⃣ 自定义（灵活调整）
-  # =========================================================
-  - RULE-SET,cusDirect,🎯 全球直连
-  - RULE-SET,cusOth,💠 三方跳动
-  # - RULE-SET,cusDomestic,🇨🇳 华夏之声
-
-  # =========================================================
-  # 0️⃣ 局域网（必须最前）
+  # 0️⃣0️⃣ 局域网（必须最前）
   # =========================================================
   - IP-CIDR,127.0.0.0/8,DIRECT
   - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
@@ -330,12 +323,19 @@ rules:
   - IP-CIDR6,fc00::/7,DIRECT,no-resolve
 
   # =========================================================
+  # 0️⃣ 自定义（灵活调整）
+  # =========================================================
+  - RULE-SET,cusDirect,🎯 全球直连
+  - RULE-SET,cusOth,💠 三方跳动
+  # - RULE-SET,cusDomestic,🇨🇳 华夏之声
+
+  # =========================================================
   # 1️⃣ 广告拦截（最高优先级）
   # =========================================================
   # 全量广告库
   - GEOSITE,category-ads-all,🆎 AdBlock
   # 补强（保留少量 rule-provider）
-  - RULE-SET,BanEasyList,🛑 全球拦截
+  # - RULE-SET,BanEasyList,🛑 全球拦截
   - RULE-SET,BanEasyPrivacy,🛑 全球拦截
 
 
