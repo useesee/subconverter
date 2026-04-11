@@ -362,12 +362,15 @@ rules:
 
   # 📱 Telegram（高动态服务，三层防漏）
   - GEOSITE,telegram,🔘 环球飞行
-  # - DOMAIN-KEYWORD,telegram,🔘 环球飞行
+  - DOMAIN-KEYWORD,telegram,🔘 环球飞行
+  # 官方IP段（关键补漏）
+  - IP-CIDR,149.154.160.0/20,🔘 环球飞行,no-resolve
+  - IP-CIDR,91.108.4.0/22,🔘 环球飞行,no-resolve
 
   # YouTube 服务
-  # - GEOSITE,youtube,🔘 环球飞行
+  - GEOSITE,youtube,🔘 环球飞行
   # 🌐 Google 生态（含API / Gemini底层）
-  # - GEOSITE,google,🔘 环球飞行
+  - GEOSITE,google,🔘 环球飞行
 
 
   # =========================================================
