@@ -179,11 +179,11 @@ proxy-groups:
   #   proxies:
   #     - 🎯 全球直连
 
-  - name: 🌍 环球视听
-    type: select
-    proxies:
-      - 🔘 环球飞行
-      - 🎯 全球直连
+  # - name: 🌍 环球视听
+  #   type: select
+  #   proxies:
+  #     - 🔘 环球飞行
+  #     - 🎯 全球直连
 
   - name: 🎯 全球直连
     type: select
@@ -203,11 +203,11 @@ proxy-groups:
   #     - REJECT
   #     - 🎯 全球直连
 
-  - name: 🆎 AdBlock
-    type: select
-    proxies:
-      - REJECT
-      - 🎯 全球直连
+  # - name: 🆎 AdBlock
+  #   type: select
+  #   proxies:
+  #     - REJECT
+  #     - 🎯 全球直连
 
 
 # ========== 规则订阅 ==========
@@ -333,7 +333,7 @@ rules:
   # 1️⃣ 广告拦截（最高优先级）
   # =========================================================
   # 全量广告库
-  - GEOSITE,category-ads-all,🆎 AdBlock
+  - GEOSITE,category-ads-all,🛑 全球拦截
   # 补强（保留少量 rule-provider）
   # - RULE-SET,BanEasyList,🛑 全球拦截
   # - RULE-SET,BanEasyPrivacy,🛑 全球拦截
