@@ -363,6 +363,7 @@ rules:
   # 📱 Telegram（高动态服务，三层防漏）
   - GEOSITE,telegram,🔘 环球飞行
   - DOMAIN-KEYWORD,telegram,🔘 环球飞行
+  - DOMAIN-SUFFIX,t.me,🔘 环球飞行
   # 官方IP段（关键补漏）
   - IP-CIDR,149.154.160.0/20,🔘 环球飞行,no-resolve
   - IP-CIDR,91.108.4.0/22,🔘 环球飞行,no-resolve
