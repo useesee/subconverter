@@ -8,7 +8,11 @@ log-level: info
 dns:
   enable: true
   ipv6: true
+  # Fake-IP 模式（性能最优）
   enhanced-mode: fake-ip
+
+  # Fake-IP 范围（官方推荐）
+  fake-ip-range: 198.18.0.1/16
 
   # 🇨🇳 国内主解析（优先）
   nameserver:
@@ -25,9 +29,14 @@ dns:
   fallback-filter:
     geoip: true
     geoip-code: CN
+    # 污染特征 IP（关键）
+    ipcidr:
+      - 240.0.0.0/4
+      - 0.0.0.0/32
 
   # 🔧 稳定性白名单（这些域名不走 fake-ip，直接真实解析）
   fake-ip-filter:
+    - "localhost"
     - "*.lan"
     - "*.local"
     - "*.qq.com"
@@ -36,7 +45,6 @@ dns:
     - "*.msftncsi.com"
     - "*.ntp.org"
     - "*.time.*"
-    - "localhost"
 
 
 # ================= 代理订阅 ===================================
@@ -231,11 +239,11 @@ rules:
   # =========================================================
   # 0️⃣0️⃣ 局域网（必须最前）
   # =========================================================
-  - IP-CIDR,127.0.0.0/8,DIRECT
-  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
-  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
-  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
-  - IP-CIDR6,fc00::/7,DIRECT,no-resolve
+  - IP-CIDR,127.0.0.0/8,🎯 全球直连
+  - IP-CIDR,10.0.0.0/8,🎯 全球直连,no-resolve
+  - IP-CIDR,172.16.0.0/12,🎯 全球直连,no-resolve
+  - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
+  - IP-CIDR6,fc00::/7,🎯 全球直连,no-resolve
 
   # =========================================================
   # 0️⃣ 自定义（灵活调整）
@@ -264,8 +272,8 @@ rules:
   # - GEOSITE,apple,🍎 苹果服务
 
   # 🤖 AI 服务（精确优先）
-  - GEOSITE,openai,🤖 人工智能
   - RULE-SET,AI,🤖 人工智能
+  - GEOSITE,openai,🤖 人工智能
   # - RULE-SET,OpenAi,🤖 人工智能
   # - DOMAIN-SUFFIX,ai.google.dev,🤖 人工智能
   # - DOMAIN-SUFFIX,gemini.google.com,🤖 人工智能
@@ -285,7 +293,13 @@ rules:
   - IP-CIDR,91.108.4.0/22,🔘 环球飞行,no-resolve
 
   # =========================================================
-  # 3️⃣ ASN 精细控制（CDN / 云服务修正，核心优化：防 CDN 误判）
+  # 3️⃣ 国外 / 国内分流
+  # =========================================================
+  - GEOSITE,geolocation-!cn,🔘 环球飞行  # 🌍 非中国流量（大范围）
+  - GEOSITE,cn,🎯 全球直连  # 🇨🇳 中国网站
+
+  # =========================================================
+  # 4️⃣ ASN 精细控制（CDN / 云服务修正，核心优化：防 CDN 误判）
   # =========================================================
   # 🌐 Google 网络（YouTube / Gemini / API）
   - IP-ASN,15169,🔘 环球飞行  # Google LLC，
@@ -297,12 +311,6 @@ rules:
   - IP-ASN,8075,🔘 环球飞行   # Microsoft Corporation
   # 📱 Telegram 官方
   - IP-ASN,62041,🔘 环球飞行  # Telegram Messenger Inc.
-
-  # =========================================================
-  # 4️⃣ 国外 / 国内分流
-  # =========================================================
-  - GEOSITE,geolocation-!cn,🔘 环球飞行  # 🌍 非中国流量（大范围）
-  - GEOSITE,cn,🎯 全球直连  # 🇨🇳 中国网站
 
   # =========================================================
   # 5️⃣ IP 兜底
