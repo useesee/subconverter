@@ -66,18 +66,6 @@ proxy-providers:
       url: http://www.gstatic.com/generate_204
     proxies:
       - DIRECT
-  
-  # GitSurgeSvr:
-  #   type: http
-  #   url: "https://raw.githubusercontent.com/useesee/subconverter/master/GitSurge.yaml"
-  #   path: ./providers/proxies/GitSurgeSvr.yaml
-  #   interval: 0
-  #   health-check:
-  #     enable: false
-  #     interval: 600
-  #     url: http://www.gstatic.com/generate_204
-  #   proxies:
-  #     - DIRECT
 
 
 # ================= 代理组 ====================================
@@ -108,9 +96,7 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-
-  # ================= 国家分组 ===================================
-
+  # ====== 国家分组 ======
   - name: 🇺🇸 美区驿站
     include-all: false
     type: url-test
@@ -151,34 +137,11 @@ proxy-groups:
     proxies:
       - 🔘 环球飞行
 
-  # - name: 🇨🇳 华夏之声
-  #   type: select
-  #   proxies:
-  #     - 🎯 全球直连
-  #     - 🔘 环球飞行
-
   - name: Ⓜ️ 微软服务
     type: select
     proxies:
       - 🎯 全球直连
       - 🔘 环球飞行
-
-  # - name: 🍎 苹果服务
-  #   type: select
-  #   proxies:
-  #     - 🎯 全球直连
-  #     - 🔘 环球飞行
-
-  # - name: 🎵 网易音乐
-  #   type: select
-  #   proxies:
-  #     - 🎯 全球直连
-
-  # - name: 🌍 环球视听
-  #   type: select
-  #   proxies:
-  #     - 🔘 环球飞行
-  #     - 🎯 全球直连
 
   - name: 🎡 负载均衡
     type: load-balance
@@ -201,18 +164,6 @@ proxy-groups:
       - REJECT
       - 🎯 全球直连
 
-  # - name: 🔥 应用净化
-  #   type: select
-  #   proxies:
-  #     - REJECT
-  #     - 🎯 全球直连
-
-  # - name: 🆎 AdBlock
-  #   type: select
-  #   proxies:
-  #     - REJECT
-  #     - 🎯 全球直连
-
 
 # ================= 规则订阅 ===================================
 rule-providers:
@@ -233,38 +184,6 @@ rule-providers:
     path: ./providers/rules/cusOth.list
     interval: 0
 
-  # cusDomestic:
-  #   type: http
-  #   format: text
-  #   behavior: classical
-  #   url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDomestic.list
-  #   path: ./providers/rules/cusDomestic.list
-  #   interval: 0
-
-  # cusDeny:
-  #   type: http
-  #   format: text
-  #   behavior: classical
-  #   url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDeny.list
-  #   path: ./providers/rules/cusDeny.list
-  #   interval: 0
-
-  # BanEasyList:
-  #   type: http
-  #   format: text
-  #   behavior: classical
-  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
-  #   path: ./providers/rules/BanEasyList.list
-  #   interval: 0
-
-  # BanEasyPrivacy:
-  #   type: http
-  #   format: text
-  #   behavior: classical
-  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list
-  #   path: ./providers/rules/BanEasyPrivacy.list
-  #   interval: 0
-
   OneDrive:
     type: http
     format: text
@@ -280,14 +199,6 @@ rule-providers:
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
     path: ./providers/rules/Microsoft.list
     interval: 0
-
-  # Apple:
-  #   type: http
-  #   format: text
-  #   behavior: classical
-  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
-  #   path: ./providers/rules/Apple.list
-  #   interval: 0
 
   AI:
     type: http
@@ -345,7 +256,6 @@ rules:
   # =========================================================
   # 2️⃣ 精确规则（高优先级，必须在最前）
   # =========================================================
-
   # Ⓜ️ Microsoft 服务
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,OneDrive,Ⓜ️ 微软服务
@@ -363,13 +273,13 @@ rules:
   # - DOMAIN-SUFFIX,claude.ai,🤖 人工智能
   # - DOMAIN-SUFFIX,perplexity.ai,🤖 人工智能
 
-  # # YouTube 服务
-  # - GEOSITE,youtube,🔘 环球飞行
-  # # 🌐 Google 生态（含API / Gemini底层）
-  # - GEOSITE,google,🔘 环球飞行
+  # YouTube 服务
+  - GEOSITE,youtube,🔘 环球飞行
+  # 🌐 Google 生态（含API / Gemini底层）
+  - GEOSITE,google,🔘 环球飞行
 
-  # # 📱 Telegram（高动态服务，三层防漏）
-  # - GEOSITE,telegram,🔘 环球飞行
+  # 📱 Telegram（高动态服务，三层防漏）
+  - GEOSITE,telegram,🔘 环球飞行
   # 📱 Telegram 官方IP段（关键补漏）
   - IP-CIDR,149.154.160.0/20,🔘 环球飞行,no-resolve
   - IP-CIDR,91.108.4.0/22,🔘 环球飞行,no-resolve
