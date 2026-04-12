@@ -233,6 +233,7 @@ rule-providers:
   #   interval: 0
 
 
+
 # ================= 规则 =====================================
 rules:
 
@@ -281,10 +282,10 @@ rules:
   # - DOMAIN-SUFFIX,claude.ai,🤖 人工智能
   # - DOMAIN-SUFFIX,perplexity.ai,🤖 人工智能
 
-  # # YouTube 服务
-  # - GEOSITE,youtube,🔘 环球飞行
-  # # 🌐 Google 生态（含API / Gemini底层）
-  # - GEOSITE,google,🔘 环球飞行
+  # YouTube 服务
+  - GEOSITE,youtube,🔘 环球飞行
+  # 🌐 Google 生态（含API / Gemini底层）
+  - GEOSITE,google,🔘 环球飞行
 
   # 📱 Telegram（高动态服务，三层防漏）
   - GEOSITE,telegram,🔘 环球飞行
@@ -311,6 +312,7 @@ rules:
   - IP-ASN,8075,🔘 环球飞行   # Microsoft Corporation
   # 📱 Telegram 官方
   - IP-ASN,62041,🔘 环球飞行  # Telegram Messenger Inc.
+
 
   # =========================================================
   # 5️⃣ IP 兜底
