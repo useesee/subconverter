@@ -197,6 +197,7 @@ rule-providers:
     format: text
     behavior: classical
     url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml
+    
     path: ./providers/rules/OneDrive.list
     interval: 0
 
@@ -220,7 +221,7 @@ rule-providers:
     type: http
     format: text
     behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OpenAi.yaml
+    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.yaml
     path: ./providers/rules/OpenAi.list
     interval: 0
 
@@ -256,7 +257,7 @@ rules:
   # =========================================================
   # 1️⃣ 广告拦截（最高优先级）
   # =========================================================
-  # 全量广告库
+  # 🔥 全量广告库
   - GEOSITE,category-ads-all,🛑 全球拦截
   # # 补强（保留少量 rule-provider）
   # - RULE-SET,BanEasyList,🛑 全球拦截
@@ -266,6 +267,7 @@ rules:
   # 2️⃣ 精确规则（高优先级，必须在最前）
   # =========================================================
   # Ⓜ️ Microsoft 服务
+  # - GEOSITE,microsoft,Ⓜ️ 微软服务
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,OneDrive,Ⓜ️ 微软服务
 
@@ -282,14 +284,16 @@ rules:
   # - DOMAIN-SUFFIX,claude.ai,🤖 人工智能
   # - DOMAIN-SUFFIX,perplexity.ai,🤖 人工智能
 
-  # YouTube 服务
+  
+  - GEOSITE,github,🔘 环球飞行
+  # 🎬 YouTube 服务
   - GEOSITE,youtube,🔘 环球飞行
   # 🌐 Google 生态（含API / Gemini底层）
   - GEOSITE,google,🔘 环球飞行
 
-  # 📱 Telegram（高动态服务，三层防漏）
+  # 📡 Telegram（高动态服务，三层防漏）
   - GEOSITE,telegram,🔘 环球飞行
-  # 📱 Telegram 官方IP段（关键补漏）
+  # 📡 Telegram 官方IP段（关键补漏）
   - IP-CIDR,149.154.160.0/20,🔘 环球飞行,no-resolve
   - IP-CIDR,91.108.4.0/22,🔘 环球飞行,no-resolve
 
@@ -310,7 +314,7 @@ rules:
   - IP-ASN,16509,🔘 环球飞行  # Amazon.com, Inc.
   # ☁️ Microsoft Azure（Copilot / Office / Bing）
   - IP-ASN,8075,🔘 环球飞行   # Microsoft Corporation
-  # 📱 Telegram 官方
+  # 📡 Telegram 官方
   - IP-ASN,62041,🔘 环球飞行  # Telegram Messenger Inc.
 
 
