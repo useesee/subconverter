@@ -74,8 +74,8 @@ proxy-groups:
     filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
       - 🚁 天机智由
-      - 🇭🇰 港区驿站
       - 🇺🇸 美区驿站
+      - 🇭🇰 港区驿站
       - 🎡 负载均衡
       - DIRECT
 
@@ -92,16 +92,6 @@ proxy-groups:
 
   # ================= 国家分组 =================
 
-  - name: 🇭🇰 港区驿站
-    include-all: false
-    type: url-test
-    use:
-      - GitSubSvr
-    # filter: (?i)hk|hongkong|港
-    url: http://www.gstatic.com/generate_204
-    interval: 300
-    tolerance: 50
-
   - name: 🇺🇸 美区驿站
     include-all: false
     type: url-test
@@ -112,16 +102,23 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-  - name: 🎡 负载均衡
-    type: load-balance
+  - name: 🇭🇰 港区驿站
+    include-all: false
+    type: url-test
     use:
-      - FreeSubSvr
       - GitSubSvr
+    # filter: (?i)hk|hongkong|港
     url: http://www.gstatic.com/generate_204
     interval: 300
     tolerance: 50
 
   - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔘 环球飞行
+
+  - name: 💠 三方跳动
     type: select
     proxies:
       - 🎯 全球直连
@@ -133,12 +130,6 @@ proxy-groups:
       - FreeSubSvr
       - GitSubSvr
     proxies:
-      - 🔘 环球飞行
-
-  - name: 💠 三方跳动
-    type: select
-    proxies:
-      - 🎯 全球直连
       - 🔘 环球飞行
 
   # - name: 🇨🇳 华夏之声
@@ -169,6 +160,15 @@ proxy-groups:
   #   proxies:
   #     - 🔘 环球飞行
   #     - 🎯 全球直连
+
+  - name: 🎡 负载均衡
+    type: load-balance
+    use:
+      - FreeSubSvr
+      - GitSubSvr
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
 
   - name: 🎯 全球直连
     type: select
