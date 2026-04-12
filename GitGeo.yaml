@@ -4,24 +4,42 @@ mode: rule
 log-level: info
 
 
-# ================= DNS（增强稳定性） =================
+# ================= DNS（增强稳定性）===========================
 dns:
   enable: true
   ipv6: true
   enhanced-mode: fake-ip
-  nameserver:
-    - https://dns.adguard.com/dns-query
-    - 223.5.5.5
-    - 1.1.1.1
 
+  # 🇨🇳 国内主解析（优先）
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+  # 🌍 国外纠错解析，当 nameserver 结果“可疑”时，启用 fallback（纠错 + 去污染 + 广告过滤）
+  fallback:
+    - https://dns.adguard.com/dns-query
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+
+  # 污染检测机制（CN地址不重新解析）
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+
+  # 🔧 稳定性白名单（这些域名不走 fake-ip，直接真实解析）
   fake-ip-filter:
     - "*.lan"
     - "*.local"
+    - "*.qq.com"
+    - "*.wechat.com"
     - "*.msftconnecttest.com"
     - "*.msftncsi.com"
+    - "*.ntp.org"
+    - "*.time.*"
+    - "localhost"
 
 
-# ========== 代理订阅 ==========
+# ================= 代理订阅 ===================================
 proxy-providers:
 
   FreeSubSvr:
@@ -62,7 +80,7 @@ proxy-providers:
   #     - DIRECT
 
 
-# ========== 代理组 ==========
+# ================= 代理组 ====================================
 proxy-groups:
 
   - name: 🔘 环球飞行
@@ -90,7 +108,8 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-  # ================= 国家分组 =================
+
+  # ================= 国家分组 ===================================
 
   - name: 🇺🇸 美区驿站
     include-all: false
@@ -195,7 +214,7 @@ proxy-groups:
   #     - 🎯 全球直连
 
 
-# ========== 规则订阅 ==========
+# ================= 规则订阅 ===================================
 rule-providers:
 
   cusDirect:
@@ -295,7 +314,7 @@ rule-providers:
   #   interval: 0
 
 
-# ========== 规则 ==========
+# ================= 规则 =====================================
 rules:
 
   # =========================================================
@@ -344,23 +363,22 @@ rules:
   # - DOMAIN-SUFFIX,claude.ai,🤖 人工智能
   # - DOMAIN-SUFFIX,perplexity.ai,🤖 人工智能
 
-  # YouTube 服务
-  - GEOSITE,youtube,🔘 环球飞行
-  # 🌐 Google 生态（含API / Gemini底层）
-  - GEOSITE,google,🔘 环球飞行
+  # # YouTube 服务
+  # - GEOSITE,youtube,🔘 环球飞行
+  # # 🌐 Google 生态（含API / Gemini底层）
+  # - GEOSITE,google,🔘 环球飞行
 
-  # 📱 Telegram（高动态服务，三层防漏）
-  - GEOSITE,telegram,🔘 环球飞行
-  # 官方IP段（关键补漏）
+  # # 📱 Telegram（高动态服务，三层防漏）
+  # - GEOSITE,telegram,🔘 环球飞行
+  # 📱 Telegram 官方IP段（关键补漏）
   - IP-CIDR,149.154.160.0/20,🔘 环球飞行,no-resolve
   - IP-CIDR,91.108.4.0/22,🔘 环球飞行,no-resolve
-
 
   # =========================================================
   # 3️⃣ ASN 精细控制（CDN / 云服务修正，核心优化：防 CDN 误判）
   # =========================================================
   # 🌐 Google 网络（YouTube / Gemini / API）
-  - IP-ASN,15169,🔘 环球飞行  # Google LLC
+  - IP-ASN,15169,🔘 环球飞行  # Google LLC，
   # ☁️ Cloudflare CDN（大量国外网站/CDN加速网络）
   - IP-ASN,13335,🔘 环球飞行  # Cloudflare, Inc.
   # ☁️ Amazon AWS（OpenAI / API / 流媒体后端）
@@ -370,22 +388,16 @@ rules:
   # 📱 Telegram 官方
   - IP-ASN,62041,🔘 环球飞行  # Telegram Messenger Inc.
 
-
   # =========================================================
   # 4️⃣ 国外 / 国内分流
   # =========================================================
-  # 🌍 非中国流量（大范围）
-  - GEOSITE,geolocation-!cn,🔘 环球飞行
-  # 🇨🇳 中国网站
-  - GEOSITE,cn,🎯 全球直连
-
+  - GEOSITE,geolocation-!cn,🔘 环球飞行  # 🌍 非中国流量（大范围）
+  - GEOSITE,cn,🎯 全球直连  # 🇨🇳 中国网站
 
   # =========================================================
   # 5️⃣ IP 兜底
   # =========================================================
-  # 🇨🇳 国内 IP
-  - GEOIP,CN,🎯 全球直连
-
+  - GEOIP,CN,🎯 全球直连  # 🇨🇳 国内 IP
 
   # =========================================================
   # 6️⃣ 最终兜底
