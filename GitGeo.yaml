@@ -47,7 +47,7 @@ dns:
     - "*.time.*"
 
 
-# ================= 代理订阅 ===================================
+# ================= 代理订阅 ==================================
 proxy-providers:
 
   FreeSubSvr:
@@ -173,7 +173,7 @@ proxy-groups:
       - 🎯 全球直连
 
 
-# ================= 规则订阅 ===================================
+# ================= 规则订阅 ==================================
 rule-providers:
 
   cusDirect:
@@ -257,7 +257,7 @@ rules:
   # =========================================================
   # 全量广告库
   - GEOSITE,category-ads-all,🛑 全球拦截
-  # 补强（保留少量 rule-provider）
+  # # 补强（保留少量 rule-provider）
   # - RULE-SET,BanEasyList,🛑 全球拦截
   # - RULE-SET,BanEasyPrivacy,🛑 全球拦截
 
@@ -268,7 +268,7 @@ rules:
   - RULE-SET,Microsoft,Ⓜ️ 微软服务
   - RULE-SET,OneDrive,Ⓜ️ 微软服务
 
-  # 🍎 Apple 服务
+  # # 🍎 Apple 服务
   # - GEOSITE,apple,🍎 苹果服务
 
   # 🤖 AI 服务（精确优先）
