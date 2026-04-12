@@ -278,13 +278,13 @@ rules:
   - RULE-SET,AI,🤖 人工智能
   - GEOSITE,openai,🤖 人工智能
   # - RULE-SET,OpenAi,🤖 人工智能
-  # - DOMAIN-SUFFIX,ai.google.dev,🤖 人工智能
+  # - DOMAIN-SUFFIX,ai.google.dev,🤖 人工智能s
   # - DOMAIN-SUFFIX,gemini.google.com,🤖 人工智能
   # - DOMAIN-SUFFIX,anthropic.com,🤖 人工智能
   # - DOMAIN-SUFFIX,claude.ai,🤖 人工智能
   # - DOMAIN-SUFFIX,perplexity.ai,🤖 人工智能
 
-  
+  # 💻 开发（GitHub）
   - GEOSITE,github,🔘 环球飞行
   # 🎬 YouTube 服务
   - GEOSITE,youtube,🔘 环球飞行
