@@ -1,0 +1,405 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+
+
+# ================= DNS（增强稳定性）===========================
+dns:
+  enable: true
+  ipv6: true
+  enhanced-mode: fake-ip
+
+  # 🇨🇳 国内主解析（优先）
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+
+  # 🌍 国外纠错解析，当 nameserver 结果“可疑”时，启用 fallback（纠错 + 去污染 + 广告过滤）
+  fallback:
+    - https://dns.adguard.com/dns-query
+    - https://1.1.1.1/dns-query
+    - https://dns.google/dns-query
+
+  # 污染检测机制（CN地址不重新解析）
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+
+  # 🔧 稳定性白名单（这些域名不走 fake-ip，直接真实解析）
+  fake-ip-filter:
+    - "*.lan"
+    - "*.local"
+    - "*.qq.com"
+    - "*.wechat.com"
+    - "*.msftconnecttest.com"
+    - "*.msftncsi.com"
+    - "*.ntp.org"
+    - "*.time.*"
+    - "localhost"
+
+
+# ================= 代理订阅 ===================================
+proxy-providers:
+
+  FreeSubSvr:
+    type: http
+    url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
+    path: ./providers/proxies/FreeSubSvr.yaml
+    interval: 0
+    health-check:
+      enable: false
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+    proxies:
+      - DIRECT
+
+  GitSubSvr:
+    type: http
+    # url: "https://sub.store/download/collection/aaas?target=V2Ray"
+    url: "https://raw.githubusercontent.com/useesee/subconverter/master/GitSub.yaml"
+    path: ./providers/proxies/GitSubSvr.yaml
+    interval: 0
+    health-check:
+      enable: false
+      interval: 600
+      url: http://www.gstatic.com/generate_204
+    proxies:
+      - DIRECT
+  
+  # GitSurgeSvr:
+  #   type: http
+  #   url: "https://raw.githubusercontent.com/useesee/subconverter/master/GitSurge.yaml"
+  #   path: ./providers/proxies/GitSurgeSvr.yaml
+  #   interval: 0
+  #   health-check:
+  #     enable: false
+  #     interval: 600
+  #     url: http://www.gstatic.com/generate_204
+  #   proxies:
+  #     - DIRECT
+
+
+# ================= 代理组 ====================================
+proxy-groups:
+
+  - name: 🔘 环球飞行
+    include-all: false
+    type: select
+    use:
+      - FreeSubSvr
+      - GitSubSvr
+    filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
+    proxies:
+      - 🚁 天机智由
+      - 🇺🇸 美区驿站
+      - 🇭🇰 港区驿站
+      - 🎡 负载均衡
+      - DIRECT
+
+  - name: 🚁 天机智由
+    include-all: false
+    type: url-test
+    use:
+      - FreeSubSvr
+      - GitSubSvr
+    filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+
+  # ================= 国家分组 ===================================
+
+  - name: 🇺🇸 美区驿站
+    include-all: false
+    type: url-test
+    use:
+      - FreeSubSvr
+    # filter: (?i)us|united states|america|美
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🇭🇰 港区驿站
+    include-all: false
+    type: url-test
+    use:
+      - GitSubSvr
+    # filter: (?i)hk|hongkong|港
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🐟 漏网之鱼
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔘 环球飞行
+
+  - name: 💠 三方跳动
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔘 环球飞行
+
+  - name: 🤖 人工智能
+    type: select
+    use:
+      - FreeSubSvr
+      - GitSubSvr
+    proxies:
+      - 🔘 环球飞行
+
+  # - name: 🇨🇳 华夏之声
+  #   type: select
+  #   proxies:
+  #     - 🎯 全球直连
+  #     - 🔘 环球飞行
+
+  - name: Ⓜ️ 微软服务
+    type: select
+    proxies:
+      - 🎯 全球直连
+      - 🔘 环球飞行
+
+  # - name: 🍎 苹果服务
+  #   type: select
+  #   proxies:
+  #     - 🎯 全球直连
+  #     - 🔘 环球飞行
+
+  # - name: 🎵 网易音乐
+  #   type: select
+  #   proxies:
+  #     - 🎯 全球直连
+
+  # - name: 🌍 环球视听
+  #   type: select
+  #   proxies:
+  #     - 🔘 环球飞行
+  #     - 🎯 全球直连
+
+  - name: 🎡 负载均衡
+    type: load-balance
+    use:
+      - FreeSubSvr
+      - GitSubSvr
+    url: http://www.gstatic.com/generate_204
+    interval: 300
+    tolerance: 50
+
+  - name: 🎯 全球直连
+    type: select
+    proxies:
+      - DIRECT
+      - 🔘 环球飞行
+
+  - name: 🛑 全球拦截
+    type: select
+    proxies:
+      - REJECT
+      - 🎯 全球直连
+
+  # - name: 🔥 应用净化
+  #   type: select
+  #   proxies:
+  #     - REJECT
+  #     - 🎯 全球直连
+
+  # - name: 🆎 AdBlock
+  #   type: select
+  #   proxies:
+  #     - REJECT
+  #     - 🎯 全球直连
+
+
+# ================= 规则订阅 ===================================
+rule-providers:
+
+  cusDirect:
+    type: http
+    format: text
+    behavior: classical
+    url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDirect.list
+    path: ./providers/rules/cusDirect.list
+    interval: 0
+
+  cusOth:
+    type: http
+    format: text
+    behavior: classical
+    url: https://raw.githubusercontent.com/useesee/subconverter/master/cusOth.list
+    path: ./providers/rules/cusOth.list
+    interval: 0
+
+  # cusDomestic:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDomestic.list
+  #   path: ./providers/rules/cusDomestic.list
+  #   interval: 0
+
+  # cusDeny:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/useesee/subconverter/master/cusDeny.list
+  #   path: ./providers/rules/cusDeny.list
+  #   interval: 0
+
+  # BanEasyList:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyList.list
+  #   path: ./providers/rules/BanEasyList.list
+  #   interval: 0
+
+  # BanEasyPrivacy:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/BanEasyPrivacy.list
+  #   path: ./providers/rules/BanEasyPrivacy.list
+  #   interval: 0
+
+  OneDrive:
+    type: http
+    format: text
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/OneDrive.list
+    path: ./providers/rules/OneDrive.list
+    interval: 0
+
+  Microsoft:
+    type: http
+    format: text
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Microsoft.list
+    path: ./providers/rules/Microsoft.list
+    interval: 0
+
+  # Apple:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Apple.list
+  #   path: ./providers/rules/Apple.list
+  #   interval: 0
+
+  AI:
+    type: http
+    format: text
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/AI.list
+    path: ./providers/rules/AI.list
+    interval: 0
+
+  OpenAi:
+    type: http
+    format: text
+    behavior: classical
+    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Ruleset/OpenAi.list
+    path: ./providers/rules/OpenAi.list
+    interval: 0
+
+  # NetEaseMusic:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/NetEaseMusic/NetEaseMusic.list
+  #   path: ./providers/rules/NetEaseMusic.list
+  #   interval: 0
+
+
+# ================= 规则 =====================================
+rules:
+
+  # =========================================================
+  # 0️⃣0️⃣ 局域网（必须最前）
+  # =========================================================
+  - IP-CIDR,127.0.0.0/8,DIRECT
+  - IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+  - IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+  - IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+  - IP-CIDR6,fc00::/7,DIRECT,no-resolve
+
+  # =========================================================
+  # 0️⃣ 自定义（灵活调整）
+  # =========================================================
+  - RULE-SET,cusDirect,🎯 全球直连
+  - RULE-SET,cusOth,💠 三方跳动
+  # - RULE-SET,cusDomestic,🇨🇳 华夏之声
+
+  # =========================================================
+  # 1️⃣ 广告拦截（最高优先级）
+  # =========================================================
+  # 全量广告库
+  - GEOSITE,category-ads-all,🛑 全球拦截
+  # 补强（保留少量 rule-provider）
+  # - RULE-SET,BanEasyList,🛑 全球拦截
+  # - RULE-SET,BanEasyPrivacy,🛑 全球拦截
+
+  # =========================================================
+  # 2️⃣ 精确规则（高优先级，必须在最前）
+  # =========================================================
+
+  # Ⓜ️ Microsoft 服务
+  - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  - RULE-SET,OneDrive,Ⓜ️ 微软服务
+
+  # 🍎 Apple 服务
+  # - GEOSITE,apple,🍎 苹果服务
+
+  # 🤖 AI 服务（精确优先）
+  - GEOSITE,openai,🤖 人工智能
+  - RULE-SET,AI,🤖 人工智能
+  # - RULE-SET,OpenAi,🤖 人工智能
+  # - DOMAIN-SUFFIX,ai.google.dev,🤖 人工智能
+  # - DOMAIN-SUFFIX,gemini.google.com,🤖 人工智能
+  # - DOMAIN-SUFFIX,anthropic.com,🤖 人工智能
+  # - DOMAIN-SUFFIX,claude.ai,🤖 人工智能
+  # - DOMAIN-SUFFIX,perplexity.ai,🤖 人工智能
+
+  # # YouTube 服务
+  # - GEOSITE,youtube,🔘 环球飞行
+  # # 🌐 Google 生态（含API / Gemini底层）
+  # - GEOSITE,google,🔘 环球飞行
+
+  # # 📱 Telegram（高动态服务，三层防漏）
+  # - GEOSITE,telegram,🔘 环球飞行
+  # 📱 Telegram 官方IP段（关键补漏）
+  - IP-CIDR,149.154.160.0/20,🔘 环球飞行,no-resolve
+  - IP-CIDR,91.108.4.0/22,🔘 环球飞行,no-resolve
+
+  # =========================================================
+  # 3️⃣ ASN 精细控制（CDN / 云服务修正，核心优化：防 CDN 误判）
+  # =========================================================
+  # 🌐 Google 网络（YouTube / Gemini / API）
+  - IP-ASN,15169,🔘 环球飞行  # Google LLC，
+  # ☁️ Cloudflare CDN（大量国外网站/CDN加速网络）
+  - IP-ASN,13335,🔘 环球飞行  # Cloudflare, Inc.
+  # ☁️ Amazon AWS（OpenAI / API / 流媒体后端）
+  - IP-ASN,16509,🔘 环球飞行  # Amazon.com, Inc.
+  # ☁️ Microsoft Azure（Copilot / Office / Bing）
+  - IP-ASN,8075,🔘 环球飞行   # Microsoft Corporation
+  # 📱 Telegram 官方
+  - IP-ASN,62041,🔘 环球飞行  # Telegram Messenger Inc.
+
+  # =========================================================
+  # 4️⃣ 国外 / 国内分流
+  # =========================================================
+  - GEOSITE,geolocation-!cn,🔘 环球飞行  # 🌍 非中国流量（大范围）
+  - GEOSITE,cn,🎯 全球直连  # 🇨🇳 中国网站
+
+  # =========================================================
+  # 5️⃣ IP 兜底
+  # =========================================================
+  - GEOIP,CN,🎯 全球直连  # 🇨🇳 国内 IP
+
+  # =========================================================
+  # 6️⃣ 最终兜底
+  # =========================================================
+  - MATCH,🐟 漏网之鱼
