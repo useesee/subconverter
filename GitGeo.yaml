@@ -17,8 +17,9 @@ dns:
 
   # 🇨🇳 国内主解析（优先）
   nameserver:
+    - https://dns.alidns.com/dns-query
+    - https://doh.pub/dns-query
     - 223.5.5.5
-    - 119.29.29.29
 
   # 🌍 国外纠错解析，当 nameserver 结果“可疑”时，启用 fallback（纠错 + 去污染 + 广告过滤）
   fallback:
@@ -36,10 +37,10 @@ dns:
       - 0.0.0.0/32
 
   nameserver-policy:
-    "geosite:cn,private":
-      - https://doh.pub/dns-query
-      - https://dns.alidns.com/dns-query
     "geosite:category-ads-all": rcode://success
+    "geosite:cn,private":
+      - https://dns.alidns.com/dns-query
+      - https://doh.pub/dns-query
 
   # 🔧 稳定性白名单（这些域名不走 fake-ip，直接真实解析）
   fake-ip-filter:
@@ -69,8 +70,6 @@ proxy-providers:
     interval: 0
     health-check:
       enable: false
-      interval: 600
-      url: http://www.gstatic.com/generate_204
 
 
 # ================= 代理组 ====================================
