@@ -6,6 +6,7 @@ log-level: info
 
 # ================= DNS（增强稳定性）===========================
 dns:
+
   enable: true
   ipv6: true
   # Fake-IP 模式（性能最优）
@@ -45,10 +46,6 @@ dns:
     - "localhost"
     - "*.lan"
     - "*.local"
-    - "*.msftconnecttest.com"
-    - "*.msftncsi.com"
-    - "*.ntp.org"
-    - "*.time.*"
 
 
 # ================= 代理订阅 ==================================
@@ -192,47 +189,6 @@ rule-providers:
     path: ./providers/rules/cusOth.list
     interval: 0
 
-  # OneDrive:
-  #   type: http
-  #   format: text
-  #   behavior: classical
-  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml
-    
-  #   path: ./providers/rules/OneDrive.list
-  #   interval: 0
-
-  # Microsoft:
-  #   type: http
-  #   format: text
-  #   behavior: classical
-  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml
-  #   path: ./providers/rules/Microsoft.list
-  #   interval: 0
-
-  # AI:
-  #   type: http
-  #   format: text
-  #   behavior: classical
-  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AI.yaml
-  #   path: ./providers/rules/AI.list
-  #   interval: 0
-
-  # OpenAi:
-  #   type: http
-  #   format: text
-  #   behavior: classical
-  #   url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.yaml
-  #   path: ./providers/rules/OpenAi.list
-  #   interval: 0
-
-  # NetEaseMusic:
-  #   type: http
-  #   format: text
-  #   behavior: classical
-  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/NetEaseMusic.yaml
-  #   path: ./providers/rules/NetEaseMusic.list
-  #   interval: 0
-
 
 # ================= 规则 =====================================
 rules:
@@ -258,7 +214,6 @@ rules:
   # =========================================================
   # 1️⃣ 广告拦截（最高优先级）
   # =========================================================
-
   # 🔥 全量广告库
   - GEOSITE,category-ads-all,🛑 全球拦截
   # # 补强（保留少量 rule-provider）
@@ -281,8 +236,6 @@ rules:
   # Ⓜ️ Microsoft 中国服务
   - GEOSITE,onedrive,Ⓜ️ 微软服务
   - GEOSITE,microsoft@cn,Ⓜ️ 微软服务
-  # - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  # - RULE-SET,OneDrive,Ⓜ️ 微软服务
   # # 🍎 Apple 中国服务
   # - GEOSITE,apple-cn,🍎 苹果服务
 
