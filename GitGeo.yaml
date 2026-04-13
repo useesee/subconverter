@@ -21,7 +21,7 @@ dns:
 
   # 🌍 国外纠错解析，当 nameserver 结果“可疑”时，启用 fallback（纠错 + 去污染 + 广告过滤）
   fallback:
-    - https://dns.adguard.com/dns-query
+    # - https://dns.adguard.com/dns-query
     - https://1.1.1.1/dns-query
     - https://dns.google/dns-query
 
@@ -34,13 +34,17 @@ dns:
       - 240.0.0.0/4
       - 0.0.0.0/32
 
+  nameserver-policy:
+    "geosite:cn,private,apple-cn":
+      - https://doh.pub/dns-query
+      - https://dns.alidns.com/dns-query
+    "geosite:category-ads-all": rcode://success
+
   # 🔧 稳定性白名单（这些域名不走 fake-ip，直接真实解析）
   fake-ip-filter:
     - "localhost"
     - "*.lan"
     - "*.local"
-    - "*.qq.com"
-    - "*.wechat.com"
     - "*.msftconnecttest.com"
     - "*.msftncsi.com"
     - "*.ntp.org"
@@ -59,8 +63,6 @@ proxy-providers:
       enable: false
       interval: 600
       url: http://www.gstatic.com/generate_204
-    proxies:
-      - DIRECT
 
   GitSubSvr:
     type: http
@@ -72,8 +74,6 @@ proxy-providers:
       enable: false
       interval: 600
       url: http://www.gstatic.com/generate_204
-    proxies:
-      - DIRECT
 
 
 # ================= 代理组 ====================================
@@ -192,38 +192,38 @@ rule-providers:
     path: ./providers/rules/cusOth.list
     interval: 0
 
-  OneDrive:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml
+  # OneDrive:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/OneDrive.yaml
     
-    path: ./providers/rules/OneDrive.list
-    interval: 0
+  #   path: ./providers/rules/OneDrive.list
+  #   interval: 0
 
-  Microsoft:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml
-    path: ./providers/rules/Microsoft.list
-    interval: 0
+  # Microsoft:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/Microsoft.yaml
+  #   path: ./providers/rules/Microsoft.list
+  #   interval: 0
 
-  AI:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AI.yaml
-    path: ./providers/rules/AI.list
-    interval: 0
+  # AI:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/AI.yaml
+  #   path: ./providers/rules/AI.list
+  #   interval: 0
 
-  OpenAi:
-    type: http
-    format: text
-    behavior: classical
-    url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.yaml
-    path: ./providers/rules/OpenAi.list
-    interval: 0
+  # OpenAi:
+  #   type: http
+  #   format: text
+  #   behavior: classical
+  #   url: https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.yaml
+  #   path: ./providers/rules/OpenAi.list
+  #   interval: 0
 
   # NetEaseMusic:
   #   type: http
@@ -232,7 +232,6 @@ rule-providers:
   #   url: https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/Providers/Ruleset/NetEaseMusic.yaml
   #   path: ./providers/rules/NetEaseMusic.list
   #   interval: 0
-
 
 
 # ================= 规则 =====================================
@@ -247,12 +246,14 @@ rules:
   - IP-CIDR,192.168.0.0/16,🎯 全球直连,no-resolve
   - IP-CIDR6,fc00::/7,🎯 全球直连,no-resolve
 
+
   # =========================================================
   # 0️⃣ 自定义（灵活调整）
   # =========================================================
   - RULE-SET,cusDirect,🎯 全球直连
   - RULE-SET,cusOth,💠 三方跳动
   # - RULE-SET,cusDomestic,🇨🇳 华夏之声
+
 
   # =========================================================
   # 1️⃣ 广告拦截（最高优先级）
@@ -263,26 +264,25 @@ rules:
   # - RULE-SET,BanEasyList,🛑 全球拦截
   # - RULE-SET,BanEasyPrivacy,🛑 全球拦截
 
+
   # =========================================================
   # 2️⃣ 精确规则（高优先级，必须在最前）
   # =========================================================
-  # Ⓜ️ Microsoft 服务
-  # - GEOSITE,microsoft,Ⓜ️ 微软服务
-  - RULE-SET,Microsoft,Ⓜ️ 微软服务
-  - RULE-SET,OneDrive,Ⓜ️ 微软服务
-
-  # # 🍎 Apple 服务
-  # - GEOSITE,apple,🍎 苹果服务
+  # 域名层的“私有网络”
+  - GEOSITE,private,🎯 全球直连
 
   # 🤖 AI 服务（精确优先）
-  - RULE-SET,AI,🤖 人工智能
+  # - RULE-SET,AI,🤖 人工智能
   - GEOSITE,openai,🤖 人工智能
   # - RULE-SET,OpenAi,🤖 人工智能
-  # - DOMAIN-SUFFIX,ai.google.dev,🤖 人工智能s
-  # - DOMAIN-SUFFIX,gemini.google.com,🤖 人工智能
-  # - DOMAIN-SUFFIX,anthropic.com,🤖 人工智能
-  # - DOMAIN-SUFFIX,claude.ai,🤖 人工智能
-  # - DOMAIN-SUFFIX,perplexity.ai,🤖 人工智能
+
+  # Ⓜ️ Microsoft 中国服务
+  - GEOSITE,onedrive,Ⓜ️ 微软服务
+  - GEOSITE,microsoft@cn,Ⓜ️ 微软服务
+  # - RULE-SET,Microsoft,Ⓜ️ 微软服务
+  # - RULE-SET,OneDrive,Ⓜ️ 微软服务
+  # # 🍎 Apple 中国服务
+  # - GEOSITE,apple-cn,🍎 苹果服务
 
   # 💻 开发（GitHub）
   - GEOSITE,github,🔘 环球飞行
@@ -291,17 +291,20 @@ rules:
   # 🌐 Google 生态（含API / Gemini底层）
   - GEOSITE,google,🔘 环球飞行
 
-  # 📡 Telegram（高动态服务，三层防漏）
-  - GEOSITE,telegram,🔘 环球飞行
+  # # 📡 Telegram（高动态服务，三层防漏）
+  # - GEOSITE,telegram,🔘 环球飞行
   # 📡 Telegram 官方IP段（关键补漏）
-  - IP-CIDR,149.154.160.0/20,🔘 环球飞行,no-resolve
-  - IP-CIDR,91.108.4.0/22,🔘 环球飞行,no-resolve
+  - GEOIP,telegram,🔘 环球飞行
+  # - IP-CIDR,149.154.160.0/20,🔘 环球飞行,no-resolve
+  # - IP-CIDR,91.108.4.0/22,🔘 环球飞行,no-resolve
+
 
   # =========================================================
   # 3️⃣ 国外 / 国内分流
   # =========================================================
   - GEOSITE,geolocation-!cn,🔘 环球飞行  # 🌍 非中国流量（大范围）
   - GEOSITE,cn,🎯 全球直连  # 🇨🇳 中国网站
+
 
   # =========================================================
   # 4️⃣ ASN 精细控制（CDN / 云服务修正，核心优化：防 CDN 误判）
@@ -322,6 +325,7 @@ rules:
   # 5️⃣ IP 兜底
   # =========================================================
   - GEOIP,CN,🎯 全球直连  # 🇨🇳 国内 IP
+
 
   # =========================================================
   # 6️⃣ 最终兜底
