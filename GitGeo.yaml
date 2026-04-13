@@ -1,5 +1,5 @@
-mixed-port: 7890
-allow-lan: true
+mixed-port: 0
+allow-lan: false
 mode: rule
 log-level: info
 
@@ -35,7 +35,7 @@ dns:
       - 0.0.0.0/32
 
   nameserver-policy:
-    "geosite:cn,private,apple-cn":
+    "geosite:cn,private":
       - https://doh.pub/dns-query
       - https://dns.alidns.com/dns-query
     "geosite:category-ads-all": rcode://success
@@ -49,7 +49,6 @@ dns:
     - "*.msftncsi.com"
     - "*.ntp.org"
     - "*.time.*"
-    - "*.abchina.com"
 
 
 # ================= 代理订阅 ==================================
