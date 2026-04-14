@@ -91,7 +91,7 @@ proxy-groups:
 
   - name: 🚁 天机智由
     include-all: false
-    type: url-test
+    type: fallback
     use:
       - FreeSubSvr
       - GitSubSvr
@@ -103,7 +103,7 @@ proxy-groups:
   # ====== 国家分组 ======
   - name: 🇺🇸 美区驿站
     include-all: false
-    type: fallback
+    type: url-test
     use:
       - FreeSubSvr
     # filter: (?i)us|united states|america|美
