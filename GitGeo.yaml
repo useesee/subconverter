@@ -8,7 +8,7 @@ log-level: info
 dns:
 
   enable: true
-  ipv6: true
+  ipv6: false
   # Fake-IP 模式（性能最优）
   enhanced-mode: fake-ip
 
@@ -24,7 +24,7 @@ dns:
   nameserver-policy:
     # 广告返回空结果
     "geosite:category-ads-all": rcode://success
-    # 国内解析 DNS
+    # 国内解析用的DNS
     "geosite:cn,private":
       - https://dns.alidns.com/dns-query
       - https://doh.pub/dns-query
