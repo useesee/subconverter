@@ -23,7 +23,7 @@ dns:
     - 223.5.5.5
     # 国内 IPV6 DNS
     - 2400:3200::1  # 阿里 IPv6 DNS
-    - 2402:4e00::   # 腾讯 IPv6 DNS
+    # - 2402:4e00::   # 腾讯 IPv6 DNS
 
   nameserver-policy:
     # 广告返回空结果
