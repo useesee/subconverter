@@ -21,6 +21,14 @@ dns:
     - https://doh.pub/dns-query
     - 223.5.5.5
 
+  nameserver-policy:
+    # 广告返回空结果
+    "geosite:category-ads-all": rcode://success
+    # 国内解析 DNS
+    "geosite:cn,private":
+      - https://dns.alidns.com/dns-query
+      - https://doh.pub/dns-query
+
   # 🌍 国外纠错解析，当 nameserver 结果“可疑”时，启用 fallback（纠错 + 去污染 + 广告过滤）
   fallback:
     # - https://dns.adguard.com/dns-query
@@ -35,12 +43,6 @@ dns:
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
-
-  nameserver-policy:
-    "geosite:category-ads-all": rcode://success
-    "geosite:cn,private":
-      - https://dns.alidns.com/dns-query
-      - https://doh.pub/dns-query
 
   # 🔧 稳定性白名单（这些域名不走 fake-ip，直接真实解析）
   fake-ip-filter:
@@ -84,13 +86,13 @@ proxy-groups:
     filter: ^((?!解锁|群|免费|网易|试用|过期).)*$
     proxies:
       - 🚁 天机智由
-      - 🇺🇸 美区驿站
-      - 🇭🇰 港区驿站
+      - 🦋 智由星闪
+      - ✨ 扶光星汉
       - 🎡 负载均衡
       - DIRECT
 
+  # === 故障切换 ===
   - name: 🚁 天机智由
-    include-all: false
     type: fallback
     use:
       - FreeSubSvr
@@ -100,9 +102,8 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-  # ====== 国家分组 ======
-  - name: 🇺🇸 美区驿站
-    include-all: false
+  # === 延时切换 ===
+  - name: 🦋 智由星闪
     type: url-test
     use:
       - FreeSubSvr
@@ -111,8 +112,8 @@ proxy-groups:
     interval: 300
     tolerance: 50
 
-  - name: 🇭🇰 港区驿站
-    include-all: false
+  # === 延时切换 ===
+  - name: ✨ 扶光星汉
     type: url-test
     use:
       - GitSubSvr
