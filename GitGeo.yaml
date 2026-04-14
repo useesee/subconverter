@@ -22,8 +22,8 @@ dns:
     - https://doh.pub/dns-query
     - 223.5.5.5
     # 国内 IPV6 DNS
-    - 2400:3200::1  # 阿里 IPv6 DNS
-    # - 2402:4e00::   # 腾讯 IPv6 DNS
+    - "2400:3200::1"  # 阿里 IPv6 DNS
+    - "2402:4e00::"   # 腾讯 IPv6 DNS
 
   nameserver-policy:
     # 广告返回空结果
@@ -32,7 +32,7 @@ dns:
     "geosite:cn,private":
       - https://dns.alidns.com/dns-query
       - https://doh.pub/dns-query
-      - 2400:3200::1
+      - "2400:3200::1"
 
   # 🌍 国外纠错解析，当 nameserver 结果“可疑”时，启用 fallback（纠错 + 去污染 + 广告过滤）
   fallback:
