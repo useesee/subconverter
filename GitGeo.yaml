@@ -8,7 +8,8 @@ log-level: info
 dns:
 
   enable: true
-  ipv6: false
+  # 双栈（IPV4/IPV6）
+  ipv6: true
   # Fake-IP 模式（性能最优）
   enhanced-mode: fake-ip
 
@@ -20,20 +21,26 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
     - 223.5.5.5
+    # 国内 IPV6 DNS
+    - 2400:3200::1  # 阿里 IPv6 DNS
+    - 2402:4e00::   # 腾讯 IPv6 DNS
 
   nameserver-policy:
     # 广告返回空结果
     "geosite:category-ads-all": rcode://success
-    # 国内解析用的DNS
+    # 国内解析直接用以下 DNS
     "geosite:cn,private":
       - https://dns.alidns.com/dns-query
       - https://doh.pub/dns-query
+      - 2400:3200::1
 
   # 🌍 国外纠错解析，当 nameserver 结果“可疑”时，启用 fallback（纠错 + 去污染 + 广告过滤）
   fallback:
     # - https://dns.adguard.com/dns-query
     - https://1.1.1.1/dns-query
     - https://dns.google/dns-query
+    - https://[2606:4700:4700::1111]/dns-query  # Cloudflare IPv6
+    - https://[2001:4860:4860::8888]/dns-query  # Google IPv6
 
   # 污染检测机制（CN地址不重新解析）
   fallback-filter:
@@ -43,6 +50,11 @@ dns:
     ipcidr:
       - 240.0.0.0/4
       - 0.0.0.0/32
+    ipcidr6:
+      - ::/128
+      - ::1/128
+      - fc00::/7        # ULA
+      - fe80::/10       # link-local
 
   # 🔧 稳定性白名单（这些域名不走 fake-ip，直接真实解析）
   fake-ip-filter:
