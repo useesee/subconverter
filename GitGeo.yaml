@@ -8,7 +8,7 @@ log-level: info
 dns:
 
   enable: true
-  # 双栈（IPV4/IPV6）
+  # 双栈解析（IPV4/IPV6）
   ipv6: true
   # Fake-IP 模式（性能最优）
   enhanced-mode: fake-ip
