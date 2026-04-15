@@ -8,13 +8,13 @@ log-level: info
 dns:
 
   enable: true
-  # 双栈解析（IPV4/IPV6）
   prefer-h3: true
   use-hosts: true
   use-system-hosts: true
   respect-rules: true
-  ipv6: true
 
+  # 双栈解析（IPV4/IPV6）
+  ipv6: true
   # Fake-IP 模式（性能最优）
   enhanced-mode: fake-ip
   # Fake-IP 范围（官方推荐）
