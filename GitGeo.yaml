@@ -17,7 +17,6 @@ dns:
 
   # Fake-IP 模式（性能最优）
   enhanced-mode: fake-ip
-
   # Fake-IP 范围（官方推荐）
   fake-ip-range: 198.18.0.1/16
 
@@ -25,7 +24,8 @@ dns:
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
-    - 2400:3200::1
+    - "2400:3200::1"
+    - "2402:4e00::"
 
   # 工作 DNS（用DoH域名），用来解析国内网站域名
   nameserver:
@@ -92,10 +92,6 @@ proxy-providers:
     url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
     path: ./providers/proxies/FreeSubSvr.yaml
     interval: 0
-    health-check:
-      enable: false
-      interval: 600
-      url: http://www.gstatic.com/generate_204
 
   GitSubSvr:
     type: http
@@ -103,8 +99,6 @@ proxy-providers:
     url: "https://raw.githubusercontent.com/useesee/subconverter/master/GitSub.yaml"
     path: ./providers/proxies/GitSubSvr.yaml
     interval: 0
-    health-check:
-      enable: false
 
 
 # ================= 代理组 ====================================
