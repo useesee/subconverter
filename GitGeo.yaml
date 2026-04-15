@@ -16,31 +16,33 @@ dns:
   # Fake-IP 范围（官方推荐）
   fake-ip-range: 198.18.0.1/16
 
-  # 🇨🇳 国内主解析（优先）
+  # 根 DNS（用IP），只用于解析 nameserver / fallback 里的“域名”
+  default-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - 2400:3200::1
+
+  # 工作 DNS（用DoH域名），用来解析所有网站域名
   nameserver:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
-    - 223.5.5.5
-    # 国内 IPV6 DNS
-    - "2400:3200::1"  # 阿里 IPv6 DNS
-    - "2402:4e00::"   # 腾讯 IPv6 DNS
 
-  nameserver-policy:
-    # 广告返回空结果
-    "geosite:category-ads-all": rcode://success
-    # 国内解析直接用以下 DNS
-    "geosite:cn,private":
-      - https://dns.alidns.com/dns-query
-      - https://doh.pub/dns-query
-      - "2400:3200::1"
+    # 国内 IPV6 DNS
+    - https://[2400:3200::1]/dns-query   # 阿里 IPv6 DNS
+    - https://[2402:4e00::]/dns-query    # 腾讯 IPv6 DNS
 
   # 🌍 国外纠错解析，当 nameserver 结果“可疑”时，启用 fallback（纠错 + 去污染 + 广告过滤）
   fallback:
     # - https://dns.adguard.com/dns-query
+    # Cloudflare
+    - https://cloudflare-dns.com/dns-query
     - https://1.1.1.1/dns-query
+    - https://[2606:4700:4700::1111]/dns-query
+
+    # Google
     - https://dns.google/dns-query
-    - https://[2606:4700:4700::1111]/dns-query  # Cloudflare IPv6
-    - https://[2001:4860:4860::8888]/dns-query  # Google IPv6
+    - https://8.8.8.8/dns-query
+    - https://[2001:4860:4860::8888]/dns-query
 
   # 污染检测机制（CN地址不重新解析）
   fallback-filter:
@@ -55,6 +57,19 @@ dns:
       - ::1/128
       - fc00::/7        # ULA
       - fe80::/10       # link-local
+
+  proxy-server-nameserver:
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+
+  nameserver-policy:
+    # 广告返回空结果
+    "geosite:category-ads-all": rcode://success
+    # 国内解析直接用以下 DNS
+    "geosite:cn,private":
+      - https://dns.alidns.com/dns-query
+      - https://doh.pub/dns-query
+      - https://[2400:3200::1]/dns-query
 
   # 🔧 稳定性白名单（这些域名不走 fake-ip，直接真实解析）
   fake-ip-filter:
