@@ -5,4 +5,4 @@ vless://008d763e-bb22-4695-851f-b4196e4e39f1@www.visaeurope.ch:443?encryption=no
 vless://008d763e-bb22-4695-851f-b4196e4e39f1@usa.visa.com:2053?encryption=none&security=tls&sni=rest-laugh-curve-lindsay.trycloudflare.com&host=rest-laugh-curve-lindsay.trycloudflare.com&fp=chrome&type=ws&path=%2F008d763e-bb22-4695-851f-b4196e4e39f1%3Fed%3D2048#US•cf_visa|2053
 vless://008d763e-bb22-4695-851f-b4196e4e39f1@icook.hk:8443?encryption=none&security=tls&sni=rest-laugh-curve-lindsay.trycloudflare.com&host=rest-laugh-curve-lindsay.trycloudflare.com&fp=chrome&type=ws&path=%2F008d763e-bb22-4695-851f-b4196e4e39f1%3Fed%3D2048#HK•cf_icook|8443
 vless://008d763e-bb22-4695-851f-b4196e4e39f1@icook.tw:443?encryption=none&security=tls&sni=rest-laugh-curve-lindsay.trycloudflare.com&host=rest-laugh-curve-lindsay.trycloudflare.com&fp=chrome&type=ws&path=%2F008d763e-bb22-4695-851f-b4196e4e39f1%3Fed%3D2048#TW•cf_icook|443
-hy2://9h9dCfAdrFIP1Dx@udp.us-west-1.clawcloudrun.com:40315?insecure=1&alpn=h3#US•hy2|40315
+hy2://9h9dCfAdrFIP1Dx@udp.us-west-1.clawcloudrun.com:35545?insecure=1&alpn=h3#US•hy2|35545
