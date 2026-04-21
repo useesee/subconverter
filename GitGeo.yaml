@@ -298,9 +298,9 @@ rules:
   # ☁️ Amazon AWS（OpenAI / API / 流媒体后端）
   - IP-ASN,16509,🔘 环球飞行  # Amazon.com, Inc.
   # ☁️ Microsoft Azure（Copilot / Office / Bing）
-  - IP-ASN,8075,🔘 环球飞行   # Microsoft Corporation
-  # 📡 Telegram 官方
-  - IP-ASN,62041,🔘 环球飞行  # Telegram Messenger Inc.
+  - IP-ASN,8075,🎯 全球直连   # Microsoft Corporation
+  # # 📡 Telegram 官方
+  # - IP-ASN,62041,🔘 环球飞行  # Telegram Messenger Inc.
 
 
   # =========================================================
