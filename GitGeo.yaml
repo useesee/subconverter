@@ -89,7 +89,7 @@ proxy-providers:
 
   FreeSubSvr:
     type: http
-    url: "https://raw.githubusercontent.com/Pawdroid/Free-servers/main/sub"
+    url: "https://sub.jqwebs.cc/api/file/mihomo"
     path: ./providers/proxies/FreeSubSvr.yaml
     interval: 0
 
