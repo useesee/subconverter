@@ -43,7 +43,7 @@ dns:
     - https://[2606:4700:4700::1111]/dns-query
     - https://[2001:4860:4860::8888]/dns-query
 
-  # 污染检测机制（CN地址不重新解析）
+  # 污染检测机制（CN 地址不重新解析）
   fallback-filter:
     geoip: true
     geoip-code: CN
@@ -66,7 +66,7 @@ dns:
     - https://[2606:4700:4700::1111]/dns-query
     - https://[2001:4860:4860::8888]/dns-query
 
-  # 国内强制走国内DNS
+  # 国内强制走国内 DNS
   nameserver-policy:
     # 广告返回空结果
     "geosite:category-ads-all": rcode://success
